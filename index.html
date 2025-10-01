@@ -1253,69 +1253,22 @@
                     adminLogin.click();
                 }
             });
-            // Botón para agregar libro
-document.getElementById("uploadBook").addEventListener("click", () => {
-    const fileInput = document.getElementById("bookFile");
-    const title = document.getElementById("bookTitle").value.trim();
-    const author = document.getElementById("bookAuthor").value.trim();
-    const category = document.getElementById("bookCategory").value;
-
-    if (fileInput.files.length > 0) {
-        const file = fileInput.files[0];
-        const newBook = {
-            id: books.length + 1,
-            title: file.name,
-            author: "Desconocido",
-            category: "otros",
-            editorial: "-",
-            ciudad: "-",
-            año: new Date().getFullYear().toString(),
-            notas: "Subido por archivo"
-        };
-        books.push(newBook);
-        alert(`✅ Libro agregado desde archivo: ${file.name}`);
-    } else if (title && author && category) {
-        const newBook = {
-            id: books.length + 1,
-            title,
-            author,
-            category,
-            editorial: "-",
-            ciudad: "-",
-            año: new Date().getFullYear().toString(),
-            notas: "Ingresado manualmente"
-        };
-        books.push(newBook);
-        alert(`✅ Libro agregado manualmente: ${title}`);
-    } else {
-        alert("⚠️ Debes ingresar los datos del libro o subir un archivo.");
-        return;
-    }
-
-    fileInput.value = "";
-    document.getElementById("bookTitle").value = "";
-    document.getElementById("bookAuthor").value = "";
-    document.getElementById("bookCategory").value = "";
-
-    renderBooks();
-});
-
-function renderBooks() {
-    const grid = document.getElementById("booksGrid");
-    if (!grid) return;
-    grid.innerHTML = "";
-    books.forEach(book => {
-        const card = document.createElement("div");
-        card.className = "book-card bg-white rounded-xl shadow p-4";
-        card.innerHTML = `
-            <h4 class="font-bold">${book.title}</h4>
-            <p class="text-sm text-gray-600">${book.author}</p>
-            <p class="text-xs text-gray-500">📂 ${book.category}</p>
-        `;
-        grid.appendChild(card);
-    });
-    document.getElementById("booksCount").textContent = books.length;
-}
+          uploadBtn.addEventListener('click', () => {
+                const title = document.getElementById('bookTitle').value;
+                const author = document.getElementById('bookAuthor').value;
+                const category = document.getElementById('bookCategory').value;
+                const file = document.getElementById('bookFile').files[0];
+                
+                if (title && author && category && file) {
+                    const newBook = {
+                        id: books.length + 1,
+                        title,
+                        author,
+                        category,
+                        featured: false
+                    };
+                    books.push(newBook);
+                    renderBooks();
 
             
            
@@ -1667,6 +1620,7 @@ function renderBooks() {
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98436b41612f8675',t:'MTc1ODcyODgzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
 
 
 
