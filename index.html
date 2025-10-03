@@ -1660,38 +1660,49 @@
                     adminLogin.click();
                 }
             });
-          uploadBtn.addEventListener('click', () => {
-                const title = document.getElementById('bookTitle').value;
-                const author = document.getElementById('bookAuthor').value;
-                const category = document.getElementById('bookCategory').value;
-                const file = document.getElementById('bookFile').files[0];
+        // MODIFICACIÓN: Función para agregar libros con nuevos campos
+    uploadBtn.addEventListener('click', () => {
+        const title = document.getElementById('bookTitle').value;
+        const author = document.getElementById('bookAuthor').value;
+        const category = document.getElementById('bookCategory').value;
+        const editorial = document.getElementById('bookEditorial').value;
+        const ciudad = document.getElementById('bookCiudad').value;
+        const año = document.getElementById('bookAño').value;
+        const notas = document.getElementById('bookNotas').value;
                 
-                if (title && author && category && file) {
-                    const newBook = {
-                        id: books.length + 1,
-                        title,
-                        author,
-                        category,
-                        featured: false
-                    };
-                    books.push(newBook);
-                    renderBooks();
-
+                if (title && author && category && editorial && ciudad && año) {
+            const newBook = {
+                id: books.length + 1,
+                title,
+                author,
+                category,
+                editorial,
+                ciudad,
+                año,
+                notas,
+                featured: false
+            };
+            books.push(newBook);
+            renderBooks();
+// Clear form
+            document.getElementById('bookTitle').value = '';
+            document.getElementById('bookAuthor').value = '';
+            document.getElementById('bookCategory').value = '';
+            document.getElementById('bookEditorial').value = '';
+            document.getElementById('bookCiudad').value = '';
+            document.getElementById('bookAño').value = '';
+            document.getElementById('bookNotas').value = '';
+            
+            alert('Libro agregado exitosamente al catálogo!');
+        } else {
+            alert('Por favor completa todos los campos obligatorios.');
+        }
+    });
+}
             
            
                     
-                    // Clear form
-                    document.getElementById('bookTitle').value = '';
-                    document.getElementById('bookAuthor').value = '';
-                    document.getElementById('bookCategory').value = '';
-                    document.getElementById('bookFile').value = '';
-                    
-                    alert('Libro agregado exitosamente!');
-                } else {
-                    alert('Por favor completa todos los campos y selecciona un archivo.');
-                }
-            });
-        }
+                   
 
         // Book details system
         function setupBookDetails() {
@@ -2027,6 +2038,7 @@
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98436b41612f8675',t:'MTc1ODcyODgzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
 
 
 
