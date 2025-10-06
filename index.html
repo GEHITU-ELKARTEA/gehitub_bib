@@ -1940,6 +1940,42 @@
             }
         }
         }
+                // Conectar el nuevo formulario con las funciones
+        document.addEventListener('DOMContentLoaded', function() {
+            // Agregar event listener al nuevo formulario
+            const bookForm = document.getElementById('bookForm');
+            if (bookForm) {
+                bookForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const formData = new FormData(e.target);
+                    const newBook = {
+                        id: getNextBookId(),
+                        title: formData.get('title'),
+                        author: formData.get('author'),
+                        category: formData.get('category'),
+                        editorial: formData.get('editorial'),
+                        ciudad: formData.get('ciudad') || '',
+                        año: formData.get('año') || '',
+                        notas: formData.get('notas') || ''
+                    };
+                    
+                    books.push(newBook);
+                    
+                    showAdminMessage('singleMessage', 'Libro agregado exitosamente!', 'success');
+                    clearAdminForm();
+                    updateBooksCounter();
+                });
+            }
+            
+            // También asegúrate de que las funciones de carga masiva estén conectadas
+            const adminFileInput = document.getElementById('adminFileInput');
+            if (adminFileInput) {
+                adminFileInput.addEventListener('change', function() {
+                    // Aquí puedes agregar lógica adicional si necesitas
+                });
+            }
+        });
 
         // Book details system
         function setupBookDetails() {
@@ -2275,6 +2311,7 @@
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98436b41612f8675',t:'MTc1ODcyODgzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
+
 
 
 
