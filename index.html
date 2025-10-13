@@ -6,25 +6,25 @@
     <title>gehitubib - Biblioteca Digital LGBTQ+</title>
     
     <!-- 🔹 SEO Meta Tags -->
-    <meta name="description" content="Biblioteca digital inclusiva con más de 1000 libros LGBTQ+. Descubre diversidad, amor e identidad en cada página.">
-    <meta name="keywords" content="LGBTQ, libros, biblioteca digital, diversidad, literatura queer, gay, lesbiana, trans, bisexual">
-    <meta name="author" content="gehitubib">
-    <meta name="robots" content="index, follow">
+<meta name="description" content="Biblioteca digital inclusiva con más de 1000 libros LGBTQ+. Descubre diversidad, amor e identidad en cada página.">
+<meta name="keywords" content="LGBTQ, libros, biblioteca digital, diversidad, literatura queer, gay, lesbiana, trans, bisexual">
+<meta name="author" content="gehitubib">
+<meta name="robots" content="index, follow">
     
-    <!-- 🔹 Google Search Console Verification -->
+     <!-- 🔹 Google Search Console Verification -->
     <meta name="google-site-verification" content="googlea23ef1d21e589e99.html" />
     <!-- 🔹 CANÓNICA -->
     <link rel="canonical" href="https://gehitu-elkartea.github.io/gehitubib/" />
 
-    <!-- 🔹 Open Graph (para compartir en redes sociales) -->
-    <meta property="og:title" content="gehitubib - Biblioteca Digital LGBTQ+">
-    <meta property="og:description" content="Una biblioteca digital inclusiva con más de 1000 libros LGBTQ+.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://TU_USUARIO.github.io/gehitubib/">
-    <meta property="og:image" content="https://TU_USUARIO.github.io/gehitubib/preview.jpg">
+<!-- 🔹 Open Graph (para compartir en redes sociales) -->
+<meta property="og:title" content="gehitubib - Biblioteca Digital LGBTQ+">
+<meta property="og:description" content="Una biblioteca digital inclusiva con más de 1000 libros LGBTQ+.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://TU_USUARIO.github.io/gehitubib/">
+<meta property="og:image" content="https://TU_USUARIO.github.io/gehitubib/preview.jpg">
 
-    <!-- 🔹 Favicon -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+<!-- 🔹 Favicon -->
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -101,7 +101,7 @@
         .notification-toast.error {
             background: #f44336;
         }
-
+        
         .notification-toast.warning {
             background: #ff9800;
         }
@@ -114,13 +114,444 @@
         <span id="notificationText">Notificación enviada correctamente</span>
     </div>
 
-    <!-- Header y resto del código se mantiene igual -->
-    <!-- ... (todo el código HTML anterior se mantiene igual) ... -->
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rainbow-gradient rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">📚</span>
+                    </div>
+                    <h1 class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                        gehitubib
+                    </h1>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-gray-700 hover:text-purple-600 font-medium transition-colors flex items-center space-x-2" data-es="🏠 Inicio" data-eu="🏠 Hasiera">
+                        🏠 Inicio
+                    </a>
+                    <a href="#catalogo" class="text-gray-700 hover:text-purple-600 font-medium transition-colors flex items-center space-x-2" data-es="📚 Catálogo" data-eu="📚 Katalogoa">
+                        📚 Catálogo
+                    </a>
+                    <a href="#sobre-nosotros" class="text-gray-700 hover:text-purple-600 font-medium transition-colors flex items-center space-x-2" data-es="ℹ️ Sobre Nosotros" data-eu="ℹ️ Guri buruz">
+                        ℹ️ Sobre Nosotros
+                    </a>
+                    <a href="#contacto" class="text-gray-700 hover:text-purple-600 font-medium transition-colors flex items-center space-x-2" data-es="📞 Contacto" data-eu="📞 Kontaktua">
+                        📞 Contacto
+                    </a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 text-gray-700 hover:text-purple-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+                
+                <!-- Language Selector & Admin -->
+                <div class="flex items-center space-x-4">
+                    <select id="languageSelector" class="bg-white/70 border border-purple-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-purple-500">
+                         <option value="es">🇪🇸 Español</option>
+                        <option value="eu">Eu Euskera</option>
+                    </select>
+                    <button id="adminToggle" class="text-xs bg-gray-200 hover:bg-gray-300 px-3 py-1 rounded-full transition-colors">
+                        Admin
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="md:hidden hidden bg-white/95 backdrop-blur-md border-t border-purple-200">
+                <div class="px-4 py-4 space-y-3">
+                    <a href="#inicio" class="block text-gray-700 hover:text-purple-600 font-medium transition-colors py-2" data-es="🏠 Inicio" data-eu="🏠 Hasiera">
+                        🏠 Inicio
+                    </a>
+                    <a href="#catalogo" class="block text-gray-700 hover:text-purple-600 font-medium transition-colors py-2" data-es="📚 Catálogo" data-eu="📚 Katalogoa">
+                        📚 Catálogo
+                    </a>
+                    <a href="#sobre-nosotros" class="block text-gray-700 hover:text-purple-600 font-medium transition-colors py-2" data-es="ℹ️ Sobre Nosotros" data-eu="ℹ️ Guri buruz">
+                        ℹ️ Sobre Nosotros
+                    </a>
+                    <a href="#contacto" class="block text-gray-700 hover:text-purple-600 font-medium transition-colors py-2" data-es="📞 Contacto" data-eu="📞 Kontaktua">
+                        📞 Contacto
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent" data-es="Diversidad en cada página" data-eu="Aniztasuna orrialde bakoitzean">
+                Diversidad en cada página
+            </h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto" data-es="Descubre historias que celebran la diversidad, el amor y la identidad. Una biblioteca digital inclusiva para toda la comunidad LGBTQ+." data-eu="Aurkitu aniztasuna, maitasuna eta identitatea ospatzen dituzten istorioak. LGBTQ+ komunitate osorako liburutegi digital inklusibo bat.">
+                Descubre historias que celebran la diversidad, el amor y la identidad. Una biblioteca digital inclusiva para toda la comunidad LGBTQ+.
+            </p>
+            
+            <!-- Action Buttons -->
+            <div class="max-w-2xl mx-auto mb-12">
+                <div class="floating-search rounded-2xl p-6 shadow-xl">
+                    <div class="flex flex-col md:flex-row gap-4 mb-6">
+                        <input type="text" id="searchInput" placeholder="Buscar por título, autor o género..." class="flex-1 px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500" data-placeholder-es="Buscar por título, autor o género..." data-placeholder-eu="Bilatu izenburuaren, egilearen edo generoaren arabera...">
+                        <button id="searchBtn" class="px-8 py-3 pride-gradient text-white rounded-xl font-semibold hover:shadow-lg transition-all" data-es="Buscar" data-eu="Bilatu">
+                            Buscar
+                        </button>
+                    </div>
+                    
+                    <!-- Catalog Button -->
+                    <div class="text-center">
+                        <button id="showCatalogBtn" class="px-12 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl font-bold text-lg hover:shadow-xl transition-all transform hover:scale-105" data-es="📚 Ver Catálogo Completo (1400 libros)" data-eu="📚 Katalogo Osoa Ikusi (1400 liburu)">
+                            📚 Ver Catálogo Completo (1400 libros)
+                        </button>
+                        <p class="text-sm text-gray-500 mt-2" data-es="Explora toda nuestra colección de literatura LGBTQ+" data-eu="Gure LGBTQ+ literatura bilduma osoa arakatu">
+                            Explora toda nuestra colección de literatura LGBTQ+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Details Modal -->
+    <div id="bookDetailsModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl p-8 max-w-2xl w-full mx-4 shadow-2xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-start mb-6">
+                <h3 class="text-2xl font-bold text-gray-800">Detalles del Libro</h3>
+                <button id="closeBookDetails" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-6">
+                <div class="md:w-1/3">
+                    <div class="w-full h-64 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl flex items-center justify-center mb-4">
+                        <span class="text-white text-6xl">📖</span>
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3">
+                    <h4 class="text-xl font-bold mb-2" id="detailTitle">Título del libro</h4>
+                    <p class="text-gray-600 mb-2" id="detailAuthor">Autor</p>
+                    <div class="space-y-2 text-sm text-gray-600 mb-4">
+                        <p><strong>Editorial:</strong> <span id="detailEditorial">-</span></p>
+                        <p><strong>Ciudad:</strong> <span id="detailCiudad">-</span></p>
+                        <p><strong>Año:</strong> <span id="detailAño">-</span></p>
+                        <p><strong>Categoría:</strong> <span id="detailCategory" class="capitalize">-</span></p>
+                    </div>
+                    <div id="detailNotas" class="text-sm text-gray-600 italic mb-6"></div>
+                    
+                    <div class="flex gap-3">
+                        <button id="detailLoanBtn" class="flex-1 py-3 bg-green-600 text-white rounded-xl font-semibold hover:bg-green-700 transition-all">
+                            Solicitar Préstamo
+                        </button>
+                        <button class="flex-1 py-3 bg-purple-600 text-white rounded-xl font-semibold hover:bg-purple-700 transition-all">
+                            Añadir a Favoritos
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loan Modal -->
+    <div id="loanModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl">
+            <h3 class="text-2xl font-bold text-center mb-6 text-gray-800">Solicitar Préstamo</h3>
+            <div class="mb-6 p-4 bg-purple-50 rounded-lg">
+                <h4 class="font-semibold text-purple-800" id="loanBookTitle">Título del libro</h4>
+                <p class="text-purple-600 text-sm" id="loanBookAuthor">Autor</p>
+            </div>
+            <form id="loanForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Nombre completo *</label>
+                    <input type="text" id="loanName" required class="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                    <input type="email" id="loanEmail" required class="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Teléfono</label>
+                    <input type="tel" id="loanPhone" class="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Días de préstamo</label>
+                    <select id="loanDays" class="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        <option value="7">7 días</option>
+                        <option value="14" selected>14 días</option>
+                        <option value="21">21 días</option>
+                        <option value="30">30 días</option>
+                    </select>
+                </div>
+                <div class="flex gap-4 mt-6">
+                    <button type="submit" class="flex-1 py-3 pride-gradient text-white rounded-xl font-semibold hover:shadow-lg transition-all">
+                        Solicitar Préstamo
+                    </button>
+                    <button type="button" id="loanCancel" class="flex-1 py-3 bg-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-400 transition-all">
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="adminModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl">
+            <h3 class="text-2xl font-bold text-center mb-6 text-gray-800">Acceso de Administrador</h3>
+            <div class="mb-6">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Contraseña</label>
+                <input type="password" id="adminPassword" placeholder="Ingresa la contraseña" class="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500">
+               
+            </div>
+            <div class="flex gap-4">
+                <button id="adminLogin" class="flex-1 py-3 pride-gradient text-white rounded-xl font-semibold hover:shadow-lg transition-all">
+                    Ingresar
+                </button>
+                <button id="adminCancel" class="flex-1 py-3 bg-gray-300 text-gray-700 rounded-xl font-semibold hover:bg-gray-400 transition-all">
+                    Cancelar
+                </button>
+            </div>
+            <div id="adminError" class="mt-4 text-red-600 text-sm text-center hidden">
+                Contraseña incorrecta. Inténtalo de nuevo.
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <section class="admin-panel bg-red-50 border-l-4 border-red-400 p-6 mx-4 rounded-lg mb-8">
+        <h3 class="text-lg font-semibold text-red-800 mb-4">Panel de Administrador</h3>
+        
+        <!-- Tabs -->
+        <div class="flex mb-6 border-b">
+            <button class="admin-tab active px-4 py-2 font-medium text-red-800 border-b-2 border-red-400" data-tab="books">
+                Gestión de Libros
+            </button>
+            <button class="admin-tab px-4 py-2 font-medium text-gray-600 hover:text-red-800" data-tab="loans">
+                Préstamos Activos
+            </button>
+        </div>
+        
+   <!-- Books Management Tab -->
+        <div id="booksTab" class="admin-tab-content">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Subir nuevo libro</label>
+                    <input type="file" id="bookFile" accept=".pdf,.epub,.mobi" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Información del libro</label>
+                    <input type="text" id="bookTitle" placeholder="Título del libro" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 mb-2">
+                    <input type="text" id="bookAuthor" placeholder="Autor" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 mb-2">
+                    <select id="bookCategory" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
+                        <option value="">Seleccionar categoría</option>
+                        <option value="romance">Romance</option>
+                        <option value="ficcion">Ficción</option>
+                        <option value="biografia">Biografía</option>
+                        <option value="ensayo">Ensayo</option>
+                        <option value="juvenil">Juvenil</option>
+                    </select>
+                </div>
+            </div>
+            <button id="uploadBook" class="mt-4 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+                Agregar Libro
+            </button>
+        </div>
+        
+        <!-- Loans Management Tab -->
+        <div id="loansTab" class="admin-tab-content hidden">
+            <div class="bg-white rounded-lg p-4">
+                <h4 class="font-semibold mb-4">Préstamos Activos</h4>
+                <div id="activeLoans" class="space-y-3">
+                    <!-- Active loans will be populated here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalogo" class="py-16 bg-white/30 hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between mb-8">
+                <h3 class="text-3xl font-bold text-gray-800" data-es="Catálogo Completo" data-eu="Katalogo Osoa">
+                    Catálogo Completo
+                </h3>
+                <button id="closeCatalog" class="text-gray-500 hover:text-gray-700 text-2xl font-bold px-4 py-2 rounded-lg hover:bg-gray-200 transition-all">
+                    ✕ Cerrar
+                </button>
+            </div>
+            
+            <!-- Search Bar in Catalog -->
+            <div class="max-w-2xl mx-auto mb-8">
+                <div class="floating-search rounded-2xl p-6 shadow-xl">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <input type="text" id="catalogSearchInput" placeholder="Buscar en el catálogo..." class="flex-1 px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500" data-placeholder-es="Buscar en el catálogo..." data-placeholder-eu="Katalogoan bilatu...">
+                        <button id="catalogSearchBtn" class="px-8 py-3 pride-gradient text-white rounded-xl font-semibold hover:shadow-lg transition-all" data-es="Buscar" data-eu="Bilatu">
+                            Buscar
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Category Filters -->
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button class="category-filter active px-6 py-2 rounded-full font-medium transition-all" data-category="all" data-es="Todos" data-eu="Denak">Todos</button>
+                <button class="category-filter px-6 py-2 rounded-full font-medium transition-all" data-category="romance" data-es="Romance" data-eu="Erromantikoa">Romance</button>
+                <button class="category-filter px-6 py-2 rounded-full font-medium transition-all" data-category="ficcion" data-es="Ficción" data-eu="Fikzioa">Ficción</button>
+                <button class="category-filter px-6 py-2 rounded-full font-medium transition-all" data-es="Biografía" data-eu="Biografia" data-category="biografia">Biografía</button>
+                <button class="category-filter px-6 py-2 rounded-full font-medium transition-all" data-category="ensayo" data-es="Ensayo" data-eu="Saiakera">Ensayo</button>
+                <button class="category-filter px-6 py-2 rounded-full font-medium transition-all" data-category="juvenil" data-es="Juvenil" data-eu="Gaztea">Juvenil</button>
+            </div>
+            
+            <!-- Books Counter -->
+            <div class="text-center mb-6">
+                <p class="text-gray-600" id="booksCounter">
+                    <span id="booksCount">1400</span> libros disponibles
+                </p>
+            </div>
+            
+            <!-- Books Grid -->
+            <div id="booksGrid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-h-[800px] overflow-y-auto p-4 bg-white/50 rounded-2xl">
+                <!-- Books will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-nosotros" class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h3 class="text-3xl font-bold mb-8 text-gray-800" data-es="Sobre Nosotros" data-eu="Guri buruz">
+                    Sobre Nosotros
+                </h3>
+                <p class="text-lg text-gray-600 mb-8" data-es="BiblioArcoíris nace del compromiso de crear un espacio seguro y accesible donde las voces LGBTQ+ puedan ser escuchadas, celebradas y preservadas. Creemos en el poder transformador de las historias para construir puentes de comprensión y empatía." data-eu="BiblioArcoíris LGBTQ+ ahotsak entzun, ospatu eta gorde daitezkeen espazio seguru eta eskuragarri bat sortzeko konpromisoaren ondorioz jaio zen. Ulermen eta enpatia zubiak eraikitzeko istorien botere eraldatzailean sinesten dugu.">
+                    BiblioArcoíris nace del compromiso de crear un espacio seguro y accesible donde las voces LGBTQ+ puedan ser escuchadas, celebradas y preservadas. Creemos en el poder transformador de las historias para construir puentes de comprensión y empatía.
+                </p>
+                <div class="grid md:grid-cols-3 gap-8 mt-12">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-pink-400 to-purple-500 rounded-full flex items-center justify-center">
+                            <span class="text-white text-2xl">🏳️‍🌈</span>
+                        </div>
+                        <h4 class="font-semibold mb-2" data-es="Inclusión" data-eu="Inklusioa">Inclusión</h4>
+                        <p class="text-gray-600 text-sm" data-es="Celebramos todas las identidades" data-eu="Identitate guztiak ospatzen ditugu">Celebramos todas las identidades</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-blue-400 to-teal-500 rounded-full flex items-center justify-center">
+                            <span class="text-white text-2xl">📚</span>
+                        </div>
+                        <h4 class="font-semibold mb-2" data-es="Accesibilidad" data-eu="Eskuragarritasuna">Accesibilidad</h4>
+                        <p class="text-gray-600 text-sm" data-es="Contenido gratuito y accesible" data-eu="Eduki doakoa eta eskuragarria">Contenido gratuito y accesible</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                            <span class="text-white text-2xl">💝</span>
+                        </div>
+                        <h4 class="font-semibold mb-2" data-es="Comunidad" data-eu="Komunitatea">Comunidad</h4>
+                        <p class="text-gray-600 text-sm" data-es="Construyendo lazos de apoyo" data-eu="Laguntza loturak eraikitzen">Construyendo lazos de apoyo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="py-16 bg-white/30">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto">
+                <h3 class="text-3xl font-bold text-center mb-8 text-gray-800" data-es="Contacto" data-eu="Kontaktua">
+                    Contacto
+                </h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Contact Information -->
+                    <div class="bg-white/70 rounded-2xl p-8 shadow-lg">
+                        <h4 class="text-xl font-semibold mb-6 text-gray-800">Información de Contacto</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <span class="text-2xl">📞</span>
+                                <span class="text-gray-700">+ 34 607 829 807</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <span class="text-2xl">📍</span>
+                                <span class="text-gray-700">Zabaleta Kalea, 47, 20002 Donostia, Gipuzkoa</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <span class="text-2xl">📩</span>
+                                <a href="mailto:info@gehitu.org" class="text-purple-600 hover:text-purple-800 transition-colors">info@gehitu.org</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <form id="contactForm" class="bg-white/70 rounded-2xl p-8 shadow-lg">
+                        <h4 class="text-xl font-semibold mb-6 text-gray-800">Envíanos un Mensaje</h4>
+                        <div class="space-y-4">
+                            <input type="text" placeholder="Nombre" class="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500" data-placeholder-es="Nombre" data-placeholder-eu="Izena" required>
+                            <input type="email" placeholder="Email" class="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500" required>
+                            <textarea placeholder="Mensaje" rows="5" class="w-full px-4 py-3 border border-purple-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500" data-placeholder-es="Mensaje" data-placeholder-eu="Mezua" required></textarea>
+                            <button type="submit" class="w-full py-3 pride-gradient text-white rounded-xl font-semibold hover:shadow-lg transition-all" data-es="Enviar Mensaje" data-eu="Mezua Bidali">
+                                Enviar Mensaje
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-8 h-8 rainbow-gradient rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold">📚</span>
+                        </div>
+                        <h4 class="text-xl font-bold">gehitubib</h4>
+                    </div>
+                    <p class="text-gray-400" data-es="Diversidad en cada página. Una biblioteca digital inclusiva para toda la comunidad LGBTQ+ con 1400 libros." data-eu="Aniztasuna orrialde bakoitzean. LGBTQ+ komunitate osorako liburutegi digital inklusibo bat 1400 libururekin.">
+                        Diversidad en cada página. Una biblioteca digital inclusiva para toda la comunidad LGBTQ+ con 1400 libros.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4" data-es="Enlaces Rápidos" data-eu="Esteka Azkarrak">Enlaces Rápidos</h5>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#inicio" class="hover:text-white transition-colors" data-es="Inicio" data-eu="Hasiera">Inicio</a></li>
+                        <li><a href="#catalogo" class="hover:text-white transition-colors" data-es="Catálogo" data-eu="Katalogoa">Catálogo</a></li>
+                        <li><a href="#sobre-nosotros" class="hover:text-white transition-colors" data-es="Sobre Nosotros" data-eu="Guri buruz">Sobre Nosotros</a></li>
+                        <li><a href="#contacto" class="hover:text-white transition-colors" data-es="Contacto" data-eu="Kontaktua">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-semibold mb-4" data-es="Síguenos" data-eu="Jarraitu gaitzazu">Síguenos</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                            <span class="text-white">📘</span>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors">
+                            <span class="text-white">📷</span>
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center hover:bg-blue-500 transition-colors">
+                            <span class="text-white">🐦</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p data-es="© 2024 gehitubib. Todos los derechos reservados. Creado con 💜 para la comunidad LGBTQ+." data-eu="© 2024 gehitubib. Eskubide guztiak gordeta. 💜rekin sortua LGBTQ+ komunitaterako.">
+                    © 2024 gehitubib. Todos los derechos reservados. Creado con 💜 para la comunidad LGBTQ+.
+                </p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        // Books database (se mantiene igual)
+        // Complete books database
         let books = [ 
-          { id: 1, title: "La homosexualidad en la mitología griega", author: "SERGENT, Bernard", category: "ensayo", editorial: "Alta Fulla", ciudad: "Barcelona", año: "1986", notas: "Prólogo G.Dumézil" },
+{ id: 1, title: "La homosexualidad en la mitología griega", author: "SERGENT, Bernard", category: "ensayo", editorial: "Alta Fulla", ciudad: "Barcelona", año: "1986", notas: "Prólogo G.Dumézil" },
 { id: 2, title: "Cristianismo, tolerancia social y homosexualidad", author: "BOSWELL, John", category: "ensayo", editorial: "Muchnik", ciudad: "Barcelona", año: "1998", notas: "" },
 { id: 3, title: "Homosexualidad hoy", author: "MIRABET i MULLOL, Antoni", category: "ensayo", editorial: "Herder", ciudad: "Barcelona", año: "1985", notas: "Present. A.de Fluvià" },
 { id: 4, title: "HOMOSEXUALIDAD: homosexuales y Un. H.en el Dº español", author: "PÉREZ CÁNOVAS, Nicolás", category: "ensayo", editorial: "Comares", ciudad: "Granada", año: "1996", notas: "" },
@@ -302,7 +733,7 @@
 { id: 180, title: "Euskal idazleen ipuin erotikoak", author: "EUSKAL idazleen ipuin erotikoak", category: "ficcion", editorial: "Txalaparta", ciudad: "Tafalla", año: "1999", notas: "" },
 { id: 181, title: "Euskal lizunkeriaren antologia", author: "ELEXPURU, Juan Martín", category: "ficcion", editorial: "Txalaparta", ciudad: "Tafalla", año: "1999", notas: "" },
 { id: 182, title: "Sofía de los presagios", author: "BELLI, Gioconda", category: "ficcion", editorial: "Txalaparta", ciudad: "Tafalla", año: "1999", notas: "" },
-{ id: 183, title: "Mujeres de la \"Rive Gauche\"", author: "BENSTOCK, Shari", category: "ensayo", editorial: "Lumen", ciudad: "Barcelona", año: "1992", notas: "" },
+{ id: 183, title: "Mujeres de la Rive Gauche", author: "BENSTOCK, Shari", category: "ensayo", editorial: "Lumen", ciudad: "Barcelona", año: "1992", notas: "" },
 { id: 184, title: "Fresa y Chocolate", author: "PAZ, Senel", category: "ficcion", editorial: "Txalaparta", ciudad: "Tafalla", año: "1997", notas: "" },
 { id: 185, title: "Nerea eta Biok", author: "MINTEGI, Laura", category: "ficcion", editorial: "Txalaparta", ciudad: "Tafalla", año: "1997", notas: "" },
 { id: 186, title: "Identidades. Reflexiones sobre la cuestión gay", author: "ERIBON, Didier", category: "ensayo", editorial: "Bellaterra", ciudad: "Barcelona", año: "2000", notas: "Prólogo Oscar Guasch" },
@@ -355,7 +786,7 @@
 { id: 233, title: "Poesía Completa", author: "CAVAFIS, C.P. [Kavafis]", category: "ficcion", editorial: "Alianza Editorial", ciudad: "Madrid", año: "1995", notas: "" },
 { id: 234, title: "La amante celeste", author: "FIOCCHETTO, Rosanna", category: "ensayo", editorial: "horas y HORAS", ciudad: "Madrid", año: "1993", notas: "" },
 { id: 235, title: "La reina de los bandidos: la verdadera historia de Phoolan Devi", author: "DEVI, Phoolan / Mala Sen", category: "biografia", editorial: "horas y HORAS", ciudad: "Madrid", año: "1995", notas: "" },
-{ id: 236, title: "Muerte en Venecia - Mario y el mago", author: "MANN, Thomas", category: "ficcion", editorial: "Plaza & Janés", ciudad: "Barcelona", año: "1999", notas: "" },
+{ id: 236, title: "Muerte en Venecia  Mario y el mago", author: "MANN, Thomas", category: "ficcion", editorial: "Plaza & Janés", ciudad: "Barcelona", año: "1999", notas: "" },
 { id: 237, title: "Salir del Armario", author: "LLOPART, Alfonso", category: "biografia", editorial: "Temas de Hoy", ciudad: "Madrid", año: "2000", notas: "" },
 { id: 238, title: "Recóndita armonía", author: "MAYORAL, Marina", category: "ficcion", editorial: "Suma de Letras", ciudad: "Barcelona", año: "2000", notas: "" },
 { id: 239, title: "Azalea roja.", author: "MIN, Ann Chee", category: "biografia", editorial: "Ediciones B", ciudad: "Barcelona", año: "1996", notas: "" },
@@ -382,7 +813,7 @@
 { id: 260, title: "Alexis o el tratado del inútil combate", author: "YOURCENAR, Marguerite", category: "ficcion", editorial: "Suma de Letras", ciudad: "Barcelona", año: "2000", notas: "" },
 { id: 261, title: "Querelle de Brest", author: "GENET, Jean", category: "ficcion", editorial: "Odisea S.21", ciudad: "Madrid", año: "2003", notas: "Prólogo E.Mendicutti" },
 { id: 262, title: "Identidad desconocida", author: "CORNWELL, Patricia D.", category: "ficcion", editorial: "Suma de Letras", ciudad: "Madrid", año: "2001", notas: "" },
-{ id: 263, title: "Actos impuros - Amado mío", author: "PASOLINI, Pier Paolo", category: "ficcion", editorial: "Seix Barral", ciudad: "Barcelona", año: "1984", notas: "" },
+{ id: 263, title: "Actos impuros  Amado mío", author: "PASOLINI, Pier Paolo", category: "ficcion", editorial: "Seix Barral", ciudad: "Barcelona", año: "1984", notas: "" },
 { id: 264, title: "Confesiones secretas de un bisexual (anarco)", author: "ZALBIDEA, Víctor", category: "ficcion", editorial: "Sedmay", ciudad: "Madrid", año: "1975", notas: "" },
 { id: 265, title: "Baile en familia", author: "LEAVITT, David", category: "ficcion", editorial: "Versal", ciudad: "Barcelona", año: "1988", notas: "" },
 { id: 266, title: "Confesiones de una máscara", author: "MISHIMA, Yukio", category: "ficcion", editorial: "Planeta", ciudad: "Barcelona", año: "1983", notas: "Prólogo J.A.Vallejo-Nájera" },
@@ -706,7 +1137,7 @@
 { id: 584, title: "Piel de serpiente", author: "USABIAGA, Pedro", category: "arte", editorial: "Editusa", ciudad: "Donostia", año: "1995", notas: "Sólo consulta en sede" },
 { id: 585, title: "Vidas del arco iris", author: "PETIT, Jordi", category: "ensayo", editorial: "Debolsillo", ciudad: "Barcelona", año: "2004", notas: "Prólogo Xabier Sardá" },
 { id: 586, title: "Jóvenes Italianos - Fotografiados en 1900", author: "GLOEDEN, Wilhem Von", category: "arte", editorial: "Galerie Janssen", ciudad: "Berlin", año: "1991", notas: "Sólo consulta en sede" },
-{ id: 587, title: "\"Fête galante\"", author: "GOITIA, Ignacio", category: "arte", editorial: "Univ. Pública de Navarra", ciudad: "Navarra", año: "2005", notas: "Sólo consulta en sede" },
+{ id: 587, title: "Fête galante", author: "GOITIA, Ignacio", category: "arte", editorial: "Univ. Pública de Navarra", ciudad: "Navarra", año: "2005", notas: "Sólo consulta en sede" },
 { id: 588, title: "La nave de los muchachos griegos", author: "VILLENA, Luis Antonio de", category: "ficcion", editorial: "Alfaguara", ciudad: "Madrid", año: "2003", notas: "" },
 { id: 589, title: "Una memoria", author: "VIDAL, Gore", category: "autobiografia", editorial: "Grijalbo Mondadori", ciudad: "Barcelona", año: "1999", notas: "" },
 { id: 590, title: "Plata quemada", author: "PIGLIA, Ricardo", category: "ficcion", editorial: "Anagrama", ciudad: "Barcelona", año: "2000", notas: "Premio Planeta 1997" },
@@ -762,7 +1193,7 @@
 { id: 640, title: "La mujer del pelo rojo", author: "BRUNEL, Sigrid", category: "ficcion", editorial: "Egales", ciudad: "Barcelona", año: "2000", notas: "" },
 { id: 641, title: "El danzarín y la danza", author: "HOLLERAN, Andrew", category: "ficcion", editorial: "Argos Vergara", ciudad: "Barcelona", año: "1979", notas: "" },
 { id: 642, title: "Sexo, amor y homofobia", author: "AMNISTIA INTERNACIONAL; BAIRD, Vanessa", category: "ensayo", editorial: "Egales - Amnistía Internacional", ciudad: "Barcelona", año: "2006", notas: "" },
-{ id: 643, title: "\"Stonewall\" Seguir exigiendo respeto", author: "AMNISTIA INTERNACIONAL", category: "ensayo", editorial: "Amnistía Internacional", ciudad: "Madrid", año: "2006", notas: "" },
+{ id: 643, title: "Stonewall Seguir exigiendo respeto", author: "AMNISTIA INTERNACIONAL", category: "ensayo", editorial: "Amnistía Internacional", ciudad: "Madrid", año: "2006", notas: "" },
 { id: 644, title: "Amigos y vecinos", author: "SCHIMEL, Lawrence; ROJO, Sara", category: "ficcion", editorial: "La Librería", ciudad: "Madrid", año: "2005", notas: "" },
 { id: 645, title: "La mujer, a debate", author: "FUENTE, Jaime de la", category: "ensayo", editorial: "Alameda", ciudad: "Madrid", año: "1970", notas: "" },
 { id: 646, title: "El lugar sin límites", author: "DONOSO, José", category: "ficcion", editorial: "Seix Barral", ciudad: "Barcelona", año: "1987", notas: "" },
@@ -874,7 +1305,7 @@
 { id: 752, title: "Espainiako asilo-sistema, emakumeen eta lesbianen, gayen, bisexualen eta transexualen giza eskubideen urraketari dagokionez", author: "CEAR-EUSKADI", category: "ensayo", editorial: "Cear", ciudad: "Bilbo", año: "2009", notas: "Bilingüe euskera-castellano" },
 { id: 753, title: "Homosexualidad griega", author: "DOVER, K.J.", category: "ensayo", editorial: "El Cobre", ciudad: "Barcelona", año: "2008", notas: "Prólogo Michel Foucault" },
 { id: 754, title: "Sexualidades. Diversidad y control social", author: "GUASCH, Oscar / VIÑUALES, Olga (Eds.)", category: "ensayo", editorial: "Bellaterra", ciudad: "Barcelona", año: "2003", notas: "" },
-{ id: 755, title: "[Des]orientación sexual. Género, sexo, deseo y automodelación", author: "WILTON, Tamsin", category: "ensayo", editorial: "Bellaterra", ciudad: "Barcelona", año: "2005", notas: "" },
+{ id: 755, title: "Des orientación sexual. Género, sexo, deseo y automodelación", author: "WILTON, Tamsin", category: "ensayo", editorial: "Bellaterra", ciudad: "Barcelona", año: "2005", notas: "" },
 { id: 756, title: "Héroes, científicos, heterosexuales y gays. Los varones en perspectiva de género", author: "GUASCH, Oscar", category: "ensayo", editorial: "Bellaterra", ciudad: "Barcelona", año: "2006", notas: "" },
 { id: 757, title: "Iguales en amor, iguales en deseo. Cultura, sexualidad y disidencia", author: "DELGADO CABRERA, A. / MATEO DEL PINO, Á.", category: "ensayo", editorial: "Aduana Vieja", ciudad: "Valencia", año: "2006", notas: "" },
 { id: 758, title: "Tal como somos", author: "SORIANO, Manuel Ángel", category: "ensayo", editorial: "Egales", ciudad: "Barcelona", año: "2007", notas: "" },
@@ -889,7 +1320,7 @@
 { id: 767, title: "La mujer travestida", author: "ORTHS, Markus", category: "ficcion", editorial: "Salamandra", ciudad: "Barcelona", año: "2009", notas: "" },
 { id: 768, title: "La papisa Juana, un estudio sobre la Edad Media", author: "ROÍDIS, Emmanuil", category: "ficcion", editorial: "Universidad de Sevilla", ciudad: "Sevilla", año: "2007", notas: "Premio Nacional Traducción 2007" },
 { id: 769, title: "Autobiografía de Alice B. Toklas", author: "STEIN, Gertrude", category: "biografia", editorial: "Lumen", ciudad: "Barcelona", año: "2000", notas: "" },
-{ id: 770, title: "\"Caballo azul de mi locura\" Lorca y el mundo gay", author: "GIBSON, Ian", category: "biografia", editorial: "Planeta", ciudad: "Barcelona", año: "2009", notas: "" },
+{ id: 770, title: "Caballo azul de mi locura Lorca y el mundo gay", author: "GIBSON, Ian", category: "biografia", editorial: "Planeta", ciudad: "Barcelona", año: "2009", notas: "" },
 { id: 771, title: "Alan Turing", author: "LEAVITT, David", category: "biografia", editorial: "Antoni Bosch", ciudad: "Barcelona", año: "2007", notas: "" },
 { id: 772, title: "Memorias", author: "WILLIAMS, Tenesse", category: "biografia", editorial: "Bruguera", ciudad: "Barcelona", año: "2008", notas: "" },
 { id: 773, title: "Diarios", author: "WARHOL, Andy", category: "biografia", editorial: "Anagrama", ciudad: "Barcelona", año: "2007", notas: "Edición de Patt Hackett" },
@@ -1010,8 +1441,515 @@
 { id: 888, title: "Crítica del pensamiento amoroso", author: "ESTEBAN, Mari Luz", category: "ensayo", editorial: "Bellaterra", ciudad: "Barcelona", año: "2011", notas: "" },
 { id: 889, title: "Homofobia. Una historia", author: "FONE, Byrne", category: "ensayo", editorial: "Oceano", ciudad: "Mexico", año: "2008", notas: "" },
 { id: 890, title: "El edredón de mármol", author: "LEAVITT, David", category: "ficcion", editorial: "Anagrama", ciudad: "Barcelona", año: "2003", notas: "" },
-{ id: 891, title: "Arkansas", author: "LEAVITT, David", category: "ficcion", editorial: "Anagrama", ciudad: "Barcelona", año: "1998", notas: "" }
+{ id: 891, title: "Arkansas", author: "LEAVITT, David", category: "ficcion", editorial: "Anagrama", ciudad: "Barcelona", año: "1998", notas: "" },
+{ id: 892, title: "El hijo de billy", author: " Nell Warren Patricia", category: "Novela", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2006", notas: ""},
+{ id: 893, title: "Cuando cae la noche", author: "Cunningham Michael", category: "Novela", editorial: "Lumen", ciudad: "Barcelona", año: "2011", notas: ""},    
+{ id: 894, title: "Sangre como la mía", author: "MARCHANT LAZCANO, Jorge", category: "Novela", editorial: "Alfaguara", ciudad: "Madrid", año: "2006", notas: ""},
+{ id: 895, title: "Teoría feminista: De la Ilustración a la globalización", author: "AMORÓS, Celia-De MIGUEL, Ana", category: "", editorial: "Minerva", ciudad: "Madrid", año: "2005", notas: ""},
+{ id: 896, title: "Resistencia Bisexual", author: "Elisa Coll", category: "Ensayo", editorial: "UHF", ciudad: "España", año: "2021", notas: ""},
+{ id: 897, title: "Con  mis manos", author: "Blanca Guifarro", category: "Poesía", editorial: "Autopublicado", ciudad: "Honduras", año: "2010", notas: ""},
+{ id: 898, title: "Presente estás", author: "Amanda Castro", category: "Relato", editorial: "Autopublicado", ciudad: "Honduras", año: "2020", notas: ""},
+{ id: 899, title: "El bebé verde: infancia, transexualidad y héroes del pop", author: "Roberta Marrero", category: "comic", editorial: "Planeta", ciudad: "Las palmas GC", año: "2016", notas: ""}, 
+{ id: 900, title: "Moio gordetzea ezinezkoa zen", author: "Kattalin Miner", category: "Relato", editorial: "Elkar", ciudad: "Donostia", año: "2019", notas: ""},
+{ id: 901, title: "Cómo superar un bollodrama", author: "Paula Alcaide", category: "ensayo", editorial: "Egales", ciudad: "Navarra", año: "2019", notas: ""},
+{ id: 902, title: "Ética Marica: Proclamas libertarias para una militancia LGTBQ", author: "Paco Vidarte", category: "ensayo", editorial: "egales", ciudad: "Madrid", año: "2010", notas: ""},
+{ id: 903, title: "Ética Promíscua", author: "Dossie Eastonm Janet W. Hardy", category: "ensayo", editorial: "Melusina", ciudad: "España", año: "2017", notas: ""},
+{ id: 904, title: "LGBT para principiantes", author: "Daniel Valero", category: "ensayo", editorial: "Mueve tu lengua", ciudad: "Jerez de la Frontera", año: "2019", notas: ""},
+{ id: 905, title: "Jenisjoplin", author: "Uxue Alberdi", category: "Novela", editorial: "Consonni", ciudad: "Bilbao", año: "2020", notas: ""},
+{ id: 906, title: "Lara de Altopico Las tierras deel barro", author: "Garazi Albizua Castelao", category: "Novela", editorial: "Apache", ciudad: "España", año: "2021", notas: ""},
+{ id: 907, title: "Etnografía de la bisexualidad en el activismo LGNY", author: "Ignacio Elpidio Domínguez Ruiz", category: "ensayo", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2017", notas: ""},
+{ id: 908, title: "Después de lo trans Sexo y género entre la izquierda y lo identitario", author: "Elizabeth Duval", category: "no ficcion", editorial: "La caja Books", ciudad: "", año: "2021", notas: ""},
+{ id: 909, title: "RelataLes Relatos Lésbicos en confinamiento", author: "Dekumas", category: "relatos", editorial: "Dekumas LBT", ciudad: "", año: "2020", notas: ""},
+{ id: 910, title: "Rojo, Blanco y Sangre Azul", author: "Casey McQuiston", category: "novela", editorial: "RBA", ciudad: "Barcelona", año: "2019", notas: ""},
+{ id: 911, title: "Los homosexuales al rescate de la civilización", author: "Cathy Crimmins", category: "Ensayo social", editorial: "Egales", ciudad: "Barcelona/Madrid", año: "2006", notas: ""},
+{ id: 912, title: "El laberinto queer la identidad en tiempos de neoliberalismo", author: "Susana López Penedo", category: "ensayo", editorial: "Egales", ciudad: "Barcelona/Madrid", año: "2008", notas: ""},
+{ id: 913, title: "Alma mater", author: "Rita Mae Brown", category: "Novela", editorial: "Egales", ciudad: "Barcelona/Madrid", año: "2006", notas: ""}, 
+{ id: 914, "title": "Cartas de amor a Milena", "author": "KAFKA, Franz", "category": "romance", "editorial": "Alianza", "ciudad": "Madrid", "año": "1974", "notas": "" },
+{ id: 915, title: "Giovanni's Room", "author": "BALDWIN, James", "category": "ficcion", "editorial": "Vintage", "ciudad": "New York", "año": "1956", "notas": "" },
+{ id: 916, title: "Call Me By Your Name", "author": "ACIMAN, André", "category": "romance", "editorial": "Farrar, Straus and Giroux", "ciudad": "New York", "año": "2007", "notas": "" },
+{ id: 917, title: "The Song of Achilles", "author": "MILLER, Madeline", "category": "romance", "editorial": "Ecco", "ciudad": "New York", "año": "2011", "notas": "" },
+{ id: 918, title: "Red: A Crayon's Story", "author": "HALL, Michael", "category": "juvenil", "editorial": "Greenwillow Books", "ciudad": "New York", "año": "2015", "notas": "" },
+{ id: 919, title: "King and the Dragonflies", "author": "CALLENDER, Kacen", "category": "juvenil", "editorial": "Scholastic Press", "ciudad": "New York", "año": "2020", "notas": "" },
+{ id: 920, title: "Cemetery Boys", "author": "THOMAS, Aiden", "category": "juvenil", "editorial": "Swoon Reads", "ciudad": "New York", "año": "2020", "notas": "" },
+{ id: 921, title: "The Miseducation of Cameron Post", "author": "DANFORTH, Emily M.", "category": "juvenil", "editorial": "Balzer + Bray", "ciudad": "New York", "año": "2012", "notas": "" },
+{ id: 922, title: "Aristotle and Dante Discover the Secrets of the Universe", "author": "SÁENZ, Benjamin Alire", "category": "juvenil", "editorial": "Simon & Schuster", "ciudad": "New York", "año": "2012", "notas": "" },
+{ id: 923, title: "The House You Pass on the Way", "author": "WOODSON, Jacqueline", "category": "juvenil", "editorial": "Delacorte Press", "ciudad": "New York", "año": "1997", "notas": "" },
+{ id: 924, title: "I Wish You All the Best", "author": "DEAVER, Mason", "category": "juvenil", "editorial": "Push", "ciudad": "New York", "año": "2019", "notas": "" },
+{ id: 925, title: "The Black Flamingo", "author": "ATTA, Dean", "category": "juvenil", "editorial": "Hodder Children's Books", "ciudad": "London", "año": "2019", "notas": "" },
+{ id: 926, title: "Felix Ever After", "author": "CALLENDER, Kacen", "category": "juvenil", "editorial": "Balzer + Bray", "ciudad": "New York", "año": "2020", "notas": "" },
+{ id: 927, title: "The Prince and the Dressmaker", "author": "WANG, Jen", "category": "juvenil", "editorial": "First Second", "ciudad": "New York", "año": "2018", "notas": "" },
+{ id: 928, title: "Stone Butch Blues", "author": "FEINBERG, Leslie", "category": "ficcion", "editorial": "Firebrand Books", "ciudad": "Ithaca", "año": "1993", "notas": "" },
+{ id: 929, title: "Rubyfruit Jungle", "author": "BROWN, Rita Mae", "category": "ficcion", "editorial": "Daughters Inc.", "ciudad": "Plainfield", "año": "1973", "notas": "" },
+{ id: 930, title: "The Well of Loneliness", "author": "HALL, Radclyffe", "category": "ficcion", "editorial": "Jonathan Cape", "ciudad": "London", "año": "1928", "notas": "" },
+{ id: 931, title: "Oranges Are Not the Only Fruit", "author": "WINTERSON, Jeanette", "category": "ficcion", "editorial": "Pandora Press", "ciudad": "London", "año": "1985", "notas": "" },
+{ id: 932, title: "Fun Home: A Family Tragicomic", "author": "BECHDEL, Alison", "category": "biografia", "editorial": "Houghton Mifflin", "ciudad": "Boston", "año": "2006", "notas": "" },
+{ id: 933, title: "Zami: A New Spelling of My Name", "author": "LORDE, Audre", "category": "biografia", "editorial": "Crossing Press", "ciudad": "Trumansburg", "año": "1982", "notas": "" },
+{ id: 934, title: "Becoming a Man: Half a Life Story", "author": "MONETTE, Paul", "category": "biografia", "editorial": "Harcourt Brace Jovanovich", "ciudad": "New York", "año": "1992", "notas": "" },
+{ id: 935, title: "The Velvet Rage", "author": "DOWNS, Alan", "category": "ensayo", "editorial": "Da Capo Press", "ciudad": "Cambridge", "año": "2005", "notas": "" },
+{ id: 936, title: "Gender Trouble", "author": "BUTLER, Judith", "category": "ensayo", "editorial": "Routledge", "ciudad": "New York", "año": "1990", "notas": "" },
+{ id: 937, title: "The History of Sexuality", "author": "FOUCAULT, Michel", "category": "ensayo", "editorial": "Pantheon Books", "ciudad": "New York", "año": "1978", "notas": "" },
+{ id: 938, title: "Sister Outsider", "author": "LORDE, Audre", "category": "ensayo", "editorial": "Crossing Press", "ciudad": "Trumansburg", "año": "1984", "notas": "" },
+{ id: 939, title: "The Epistemology of the Closet", "author": "SEDGWICK, Eve Kosofsky", "category": "ensayo", "editorial": "University of California Press", "ciudad": "Berkeley", "año": "1990", "notas": "" },
+{ id: 940, title: "Transgender History", "author": "STRYKER, Susan", "category": "ensayo", "editorial": "Seal Press", "ciudad": "Berkeley", "año": "2008", "notas": "" },
+{ id: 941, title: "The Transgender Studies Reader", "author": "STRYKER, Susan & WHITTLE, Stephen", "category": "ensayo", "editorial": "Routledge", "ciudad": "New York", "año": "2006", "notas": "" },
+{ id: 942, title: "Whipping Girl", "author": "SERANO, Julia", "category": "ensayo", "editorial": "Seal Press", "ciudad": "Berkeley", "año": "2007", "notas": "" },
+{ id: 943, title: "Redefining Realness", "author": "MOCK, Janet", "category": "biografia", "editorial": "Atria Books", "ciudad": "New York", "año": "2014", "notas": "" },
+{ id: 944, title: "Surpassing Certainty", "author": "MOCK, Janet", "category": "biografia", "editorial": "Atria Books", "ciudad": "New York", "año": "2017", "notas": "" },
+{ id: 945, title: "The Death and Life of Marsha P. Johnson", "author": "FRANCE, David", "category": "biografia", "editorial": "Netflix Documentary", "ciudad": "Los Angeles", "año": "2017", "notas": "" },
+{ id: 946, title: "Paris Is Burning", "author": "LIVINGSTON, Jennie", "category": "biografia", "editorial": "Off White Productions", "ciudad": "New York", "año": "1990", "notas": "" },
+{ id: 947, title: "Tales of the City", "author": "MAUPIN, Armistead", "category": "ficcion", "editorial": "Harper & Row", "ciudad": "New York", "año": "1978", "notas": "" },
+{ id: 948, title: "More Tales of the City", "author": "MAUPIN, Armistead", "category": "ficcion", "editorial": "Harper & Row", "ciudad": "New York", "año": "1980", "notas": "" },
+{ id: 949, title: "Further Tales of the City", "author": "MAUPIN, Armistead", "category": "ficcion", "editorial": "Harper & Row", "ciudad": "New York", "año": "1982", "notas": "" },
+{ id: 950, title: "Babycakes", "author": "MAUPIN, Armistead", "category": "ficcion", "editorial": "Harper & Row", "ciudad": "New York", "año": "1984", "notas": "" },
+{ id: 951, title: "Significant Others", "author": "MAUPIN, Armistead", "category": "ficcion", "editorial": "Harper & Row", "ciudad": "New York", "año": "1987", "notas": "" },
+{ id: 952, title: "Sure of You", "author": "MAUPIN, Armistead", "category": "ficcion", "editorial": "Harper & Row", "ciudad": "New York", "año": "1989", "notas": "" },
+{ id: 953, title: "The Front Runner", "author": "WARREN, Patricia Nell", "category": "romance", "editorial": "William Morrow", "ciudad": "New York", "año": "1974", "notas": "" },
+{ id: 954, title: "Annie on My Mind", "author": "GARDEN, Nancy", "category": "juvenil", "editorial": "Farrar, Straus and Giroux", "ciudad": "New York", "año": "1982", "notas": "" },
+{ id: 955, title: "The Perks of Being a Wallflower", "author": "CHBOSKY, Stephen", "category": "juvenil", "editorial": "MTV Books", "ciudad": "New York", "año": "1999", "notas": "" },
+{ id: 956, title: "Boy Meets Boy", "author": "LEVITHAN, David", "category": "juvenil", "editorial": "Knopf Books", "ciudad": "New York", "año": "2003", "notas": "" },
+{ id: 957, title: "Will Grayson, Will Grayson", "author": "GREEN, John & LEVITHAN, David", "category": "juvenil", "editorial": "Dutton Books", "ciudad": "New York", "año": "2010", "notas": "" },
+{ id: 958, title: "Simon vs. the Homo Sapiens Agenda", "author": "ALBERTALLI, Becky", "category": "juvenil", "editorial": "Balzer + Bray", "ciudad": "New York", "año": "2015", "notas": "" },
+{ id: 959, title: "They Both Die at the End", "author": "SILVERA, Adam", "category": "juvenil", "editorial": "HarperTeen", "ciudad": "New York", "año": "2017", "notas": "" },
+{ id: 960, title: "What If It's Us", "author": "ALBERTALLI, Becky & SILVERA, Adam", "category": "juvenil", "editorial": "HarperTeen", "ciudad": "New York", "año": "2018", "notas": "" },
+{ id: 961, title: "Last Night at the Telegraph Club", "author": "LO, Malinda", "category": "juvenil", "editorial": "Dutton Books", "ciudad": "New York", "año": "2021", "notas": "" },
+{ id: 962, title: "Morbo : Sara & Caterine : romance en Méjico", "author": "NES, Illy", "category": "romance", "editorial": "La autora", "ciudad": "", "año": "1999", "notas": "" },
+{ id: 963, title: "Paula tiene dos mamás", "author": "NEWMAN, Paula, PIÉROLA, Mabel", "category": "juvenil", "editorial": "Bellaterra", "ciudad": "Barcelona", "año": "2003", "notas": "" },
+{ id: 964, title: "Manifiesto contra sexual", "author": "Preciado Beatriz", "category": "Conducta sexual-Ensayos", "editorial": "Opera Prima", "ciudad": "Madrid", "año": "2002", "notas": "" },
+{ id: 965, title: "La pasion y otros relatos", "author": "Barnes djuna", "category": "ficcion", "editorial": "Plaza & janes", "ciudad": "Barcelona", "año": "1999", "notas": ""},
+{ id: 966, title: "Cenicienta en chueca", "author": "Jaime Maria Felicitas", "category": "ficcion", "editorial": "Odisea S.21", "ciudad": "Madrid", "año": " 2003", "notas": ""},
+{ id: 967, title: "Un cuarto propio", "author": "WOOLF, Virginia", "category": "ficcion", "editorial": "horas y HORAS", "ciudad": "Madrid", "año": "2003", "notas": ""},
+{ id: 968, title: "La hermana, la extranjera", "author": "LORDE, Audre", "category": "ensayo", "editorial": "horas y HORAS", "ciudad": "Madrid", "año": "2003", "notas": ""},
+{ id: 969, title: "La importancia de llamarse Dolly Wilde", "author": "SCHENKAR, Joan", "category": "biografia", "editorial": "Lumen", "ciudad": "Barcelona", "año": "2002", "notas": ""},
+{ id: 970, title: "Vino", "author": "ETXENIKE, Luisa", "category": "ficcion", "editorial": "Bassarai", "ciudad": "Gazteiz", "año": "2003", "notas": "" },
+{ id: 971, title: "Y si quieres saber de mi pasado", "author": "VARGAS, Chavela", "category": "biografia", "editorial": "Santillana", "ciudad": "Madrid", "año": "2002", "notas": "Colaboración de J.C. Vales" },
+{ id: 972, title: "Diario", "author": "NIJINSKY, Vaslav", "category": "autobiografia", "editorial": "Acantilado", "ciudad": "Barcelona", "año": "2003", "notas": "" },
+{ id: 973, title: "Donde está Dios", "author": "PRADERA, Malu", "category": "ficcion", "editorial": "Eunate", "ciudad": "Navarra", "año": "2003", "notas": "" },
+{ id: 974, title: "Secretos a voces", "author": "BENÍTEZ, Marcos; SCHERPENZEEL, Paul van", "category": "testimonios", "editorial": "La Tempestad", "ciudad": "Barcelona", "año": "2003", "notas": "" },
+{ id: 975, title: "Diario del buen sexo. Porque tú lo vales", "author": "COGAM", "category": "educacion sexual", "editorial": "Consejería de Sanidad", "ciudad": "Madrid", "año": "2003", "notas": "" },
+{ id: 976, title: "El lustre de la perla", "author": "WATERS, Sarah", "category": "ficcion", "editorial": "Anagrama", "ciudad": "Barcelona", "año": "2004", "notas": "" },
+{ id: 977, title: "Los chicos de la banda", "author": "CROWLEY, Mart", "category": "teatro", "editorial": "MK", "ciudad": "Madrid", "año": "1975", "notas": "" },
+{ id: 978, title: "El encanto masculino", "author": "ORS, Francisco", "category": "ensayo", "editorial": "Odisea S.21", "ciudad": "Madrid", "año": "2004", "notas": "Prólogo Nuria Espert - Dedicado por el autor" },
+{ id: 979, title: "El viaje a Francia", "author": "DUTEURTRE, Benoît", "category": "ficcion", "editorial": "Odisea S.21", "ciudad": "Madrid", "año": "2004", "notas": "Premio Médicis" },
+{ id: 980, title: "Donde comienza tu nombre", "author": "GALÁN, Mabel", "category": "ficcion", "editorial": "Odisea S.21", "ciudad": "Madrid", "año": "2004", "notas": "Prólogo Lola Van Guardia" },
+{ id: 981, title: "Yestergay", "author": "FERNÁNDEZ, Miguel", "category": "ficcion", "editorial": "Odisea S.21", "ciudad": "Madrid", "año": "2003", "notas": "Ganador V Premio Odisea" },
+{ id: 982, title: "Llévame a casa", "author": "MORÁN, Libertad", "category": "ficcion", "editorial": "Odisea S.21", "ciudad": "Madrid", "año": "2003", "notas": "Finalista V Premio Odisea" },
+{ id: 983, title: "El clavel verde", "author": "HICHENS, Robert", "category": "ficcion", "editorial": "Odisea S.21", "ciudad": "Madrid", "año": "2003", "notas": "" },
+{ id: 984, title: "Las 'locas' de postín", "author": "RETANA, Álvaro", "category": "ficcion", "editorial": "Odisea S.21", "ciudad": "Madrid", "año": "2004", "notas": "Introducción L.A. de Villena" },
+{ id: 985, title: "La noche en que me enamoré de River Phoenix", "author": "JIMÉNEZ ARIZA, Antonio", "category": "ficcion", "editorial": "Egales", "ciudad": "Barcelona", "año": "2003", "notas": "" },
+{ id: 986, title: "Tamara De Lempicka", "author": "LEMPICKA, Tamara de / Laura Claridge", "category": "biografia", "editorial": "Circe", "ciudad": "Barcelona", "año": "2001", "notas": "" },
+{ id: 987, title: "Unas bollos de cuidado", "author": "BECHDEL, Alison", "category": "comic", "editorial": "Egales", "ciudad": "Barcelona", "año": "2004", "notas": "" },
+{ id: 988, title: "Corazones calientes. Historias de amor", "author": "KÖNIG, Ralf / MEYER, Detlev", "category": "comic", "editorial": "La Cúpula", "ciudad": "Barcelona", "año": "2002", "notas": "" },
+{ id: 989, title: "Como conejos", "author": "KÖNIG, Ralf", "category": "comic", "editorial": "La Cúpula", "ciudad": "Barcelona", "año": "2003", "notas": "" },
+{ id: 990, title: "Historias entre chicos", "author": "CARPIO, MEDINA, PADILLA, REVILLA, SEBAS", "category": "comic", "editorial": "Edic. de la Tempestad", "ciudad": "Barcelona", "año": "2000", "notas": "" },
+{ id: 991, title: "San Nazario y las Pirañas Incorruptas. Obra completa 70-80", "author": "NAZARIO", "category": "comic", "editorial": "La Cúpula", "ciudad": "Barcelona", "año": "2001", "notas": "" },
+{ id: 992, title: "¿Entiendes de cocina? ¡Lo que comen los gays!", "author": "INFANTE, José / ALAS, Leopoldo", "category": "ensayo", "editorial": "Martínez Roca", "ciudad": "Barcelona", "año": "2002", "notas": "" },
+{ id: 993, title: "Mi primera vez", "author": "BENÍTEZ, Marcos / GENERELO, Jesús", "category": "testimonios", "editorial": "Edic. de la Tempestad", "ciudad": "Barcelona", "año": "2003", "notas": "" },
+{ id: 994, title: "Una historia sociocultural de la homosexualidad", "author": "LIZARRAGA CRUCHAGA, Xabier", "category": "ensayo", "editorial": "Paidós", "ciudad": "México", "año": "2003", "notas": "" },
+{ id: 995, title: "Los gays en la historia", "author": "TOURNIER, Paul", "category": "ensayo", "editorial": "Robin Book", "ciudad": "Barcelona", "año": "2004", "notas": "" },
+{ id: 996, title: "Reyes que amaron como reinas", "author": "BRUQUETAS DE CASTRO, Fernando", "category": "ensayo", "editorial": "La Esfera de los Libros", "ciudad": "Madrid", "año": "2003", "notas": "" },
+{ id: 997, title: "Redada de violetas", "author": "ARNALTE, Arturo", "category": "ensayo", "editorial": "La Esfera de los Libros", "ciudad": "Madrid", "año": "2003", "notas": "Prólogo J. Saavedra - Epíl. P. Zerolo" },
+{ id: 998, title: "Ene amak", "author": "SOODEN, Vanessa", "category": "infantil", "editorial": "Mairi", "ciudad": "Sopelana", "año": "2004", "notas": "" },
+{ id: 999, title: "Mamás mías", "author": "SOODEN, Vanessa", "category": "infantil", "editorial": "Mairi", "ciudad": "Sopelana", "año": "2004", "notas": "" },
+{ id: 1000, title: "El cancaneo. Diccionario petardo de argot gay, lesbi y trans", "author": "PEREDA, Ferran", "category": "diccionario", "editorial": "Laertes", "ciudad": "Barcelona", "año": "2004", "notas": "Dedicado por el autor" },
+{ id: 1001, title: "Fuego del paraíso", "author": "RENAULT, Mary", "category": "ficcion", "editorial": "Grijalbo", "ciudad": "Barcelona", "año": "1973", "notas": "" },
+{ id: 1002, title: "El muchacho persa", "author": "RENAULT, Mary", "category": "ficcion", "editorial": "Grijalbo", "ciudad": "Barcelona", "año": "1988", "notas": "" },
+{ id: 1003, title: "El cantante de salmos", "author": "RENAULT, Mary", "category": "ficcion", "editorial": "Grijalbo", "ciudad": "Barcelona", "año": "1988", "notas": "" },
+{ id: 1004, title: "El auriga", "author": "RENAULT, Mary", "category": "ficcion", "editorial": "Grijalbo", "ciudad": "Barcelona", "año": "1989", "notas": "" },
+{ id: 1005, title: "Caballos desbocados", "author": "MISHIMA, Yukio", "category": "ficcion", "editorial": "Caralt", "ciudad": "Barcelona", "año": "1986", "notas": "" },
+{ id: 1006, title: "Sed de amor", "author": "MISHIMA, Yukio", "category": "ficcion", "editorial": "Caralt", "ciudad": "Barcelona", "año": "1984", "notas": "" },
+{ id: 1007, title: "Alexias de Atenas", "author": "RENAULT, Mary", "category": "ficcion", "editorial": "Edhasa", "ciudad": "Barcelona", "año": "1992", "notas": "" },
+{ id: 1008, title: "El último testamento de Oscar Wilde", "author": "ACKROYD, Peter", "category": "ficcion", "editorial": "Círculo de Lectores", "ciudad": "Barcelona", "año": "1990", "notas": "" },
+{ id: 1009, title: "Los delitos insignificantes", "author": "POMBO, Álvaro", "category": "ficcion", "editorial": "Círculo de Lectores", "ciudad": "Barcelona", "año": "1989", "notas": "" },
+{ id: 1010, title: "Cursos de Derechos Humanos de Donostia-Sn. Sn. Vol 04", "author": "CURSOS de Derechos Humanos de Donostia-Sn. Sn.", "category": "ensayo", "editorial": "Univ. del País Vasco", "ciudad": "Bilbo", "año": "2003", "notas": "Soroeta Liceras, Juan (ed.)" },
+{ id: 1011, title: "Cuentos inenarrables", "author": "COCA, Aldo", "category": "ficcion", "editorial": "Tusquets", "ciudad": "Barcelona", "año": "1986", "notas": "" },
+{ id: 1012, title: "Chapero viene de chapa", "author": "NUALART, Jaime", "category": "ficcion", "editorial": "F.E.", "ciudad": "Barcelona", "año": "1999", "notas": "" },
+{ id: 1013, title: "Las variantes sexuales", "author": "WADE, Carlson", "category": "ensayo", "editorial": "Manuales Científicos", "ciudad": "New York", "año": "1967", "notas": "" },
+{ id: 1014, title: "El homosexual ante la sociedad enferma", "author": "ENRIQUEZ, José Ramón [Ed.]", "category": "ensayo", "editorial": "Tusquets", "ciudad": "Barcelona", "año": "1978", "notas": "" },
+{ id: 1015, title: "Bisexualidad", "author": "WOLFF, Charlotte", "category": "ensayo", "editorial": "Plaza & Janés", "ciudad": "Barcelona", "año": "1978", "notas": "" },
+{ id: 1016, title: "La cuestión homosexual", "author": "NICOLAS, Jean", "category": "ensayo", "editorial": "Fontamara", "ciudad": "Barcelona", "año": "1982", "notas": "" },
+{ id: 1017, title: "The male nude", "author": "LEDDICK, David", "category": "arte", "editorial": "Taschen", "ciudad": "Colonia", "año": "1998", "notas": "Sólo consulta en sede" },
+{ id: 1018, title: "The complete reprint of Physique Pictorial 1951-1960", "author": "PHISIQUE PICTORIAL", "category": "arte", "editorial": "Taschen", "ciudad": "Colonia", "año": "1997", "notas": "Sólo consulta en sede" },
+{ id: 1019, title: "The complete reprint of Physique Pictorial 1960-1967", "author": "PHISIQUE PICTORIAL", "category": "arte", "editorial": "Taschen", "ciudad": "Colonia", "año": "1997", "notas": "Sólo consulta en sede" },
+{ id: 1020, title: "The complete reprint of Physique Pictorial 1968-1990", "author": "PHISIQUE PICTORIAL", "category": "arte", "editorial": "Taschen", "ciudad": "Colonia", "año": "1997", "notas": "Sólo consulta en sede" },
+{ id: 1021, title: "Mis dilemas con el Islam", "author": "MANJI, Irshad", "category": "testimonios", "editorial": "Maeva", "ciudad": "Madrid", "año": "2004", "notas": "" },
+{ id: 1022, title: "Aitorrek bi ama ditu", "author": "MENDIETA, M. Jose / ZABALETA, Jon", "category": "infantil", "editorial": "Erein", "ciudad": "Donostia", "año": "2004", "notas": "Dedicado por la autora" },
+{ id: 1023, title: "Los reyes homosexuales", "author": "RIGAULT, Henri", "category": "ensayo", "editorial": "Cirene", "ciudad": "Madrid", "año": "1995", "notas": "" },
+{ id: 1024, title: "Historia de un deseo", "author": "BABIANO, Iván", "category": "ficcion", "editorial": "Odisea S.21", "ciudad": "Madrid", "año": "2004", "notas": "Finalista VI Premio Odisea" },
+{ id: 1025, title: "El Kama Sutra lesbiano", "author": "HARDING, Kat", "category": "ensayo", "editorial": "Ediciones B", "ciudad": "Barcelona", "año": "2004", "notas": "" },
+{ id: 1026, title: "Kama-sutra lésbico", "author": "GALLOTTI, Alicia", "category": "ensayo", "editorial": "mr", "ciudad": "Madrid", "año": "2004", "notas": "" },
+{ id: 1027, title: "Timoleon Vieta vuelve a casa", "author": "RHODES, Dan", "category": "ficcion", "editorial": "Alfaguara", "ciudad": "Madrid", "año": "2003", "notas": "" },
+{ id: 1028, title: "El Kama Sutra gay", "author": "SANDERSON, Terry", "category": "ensayo", "editorial": "Ediciones B", "ciudad": "Barcelona", "año": "2004", "notas": "" },
+{ id: 1029, title: "Afinidad", author: "WATERS, Sarah", category: "novela", editorial: "Anagrama", ciudad: "Barcelona", año: "2005", notas: "" },
+{ id: 1030, title: "El látigo y la pluma", author: "OLMEDA, Fernando", category: "homosexualidad-historia", editorial: "Oberon", ciudad: "Madrid", año: "2004", notas: "Dedicado por el autor" },
+{ id: 1031, title: "De Sodoma a Chueca", author: "MIRA, Alberto", category: "homosexualidad-historia", editorial: "Egales", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1032, title: "Transexualidad. La búsqueda de una identidad", author: "BECERRA-FERNÁNDEZ, Antonio", category: "transexualidad-tratados", editorial: "Díaz de Santos", ciudad: "Madrid", año: "2003", notas: "" },
+{ id: 1033, title: "¿Cómo sobrevivir en el ambiente?", author: "SCHERPENZEEL, Paul Van", category: "homosexualidad-manuales", editorial: "Gay saber", ciudad: "Madrid", año: "2004", notas: "" },
+{ id: 1034, title: "¿Seré lesbiana?", author: "GIMENO, B. / RODRIGO, B.", category: "lesbianismo-manuales", editorial: "Gay saber", ciudad: "Madrid", año: "2004", notas: "" },
+{ id: 1035, title: "¿Seré gay?", author: "GÓMEZ, Ana B.", category: "homosexualidad-manuales", editorial: "Gay saber", ciudad: "Madrid", año: "2004", notas: "" },
+{ id: 1036, title: "¿Dónde está el límite?", author: "MARTÍN-PÉREZ, Alberto", category: "homosexualidad-manuales", editorial: "Gay saber", ciudad: "Madrid", año: "2004", notas: "" },
+{ id: 1037, title: "¿Seré bisexual?", author: "LÓPEZ, Darío", category: "bisexualidad-manuales", editorial: "Gay saber", ciudad: "Madrid", año: "2004", notas: "" },
+{ id: 1038, title: "El cuarto oscuro de la iglesia", author: "GAMBOA, Carlos", category: "homosexualidad-religión", editorial: "Acadap", ciudad: "Madrid", año: "2004", notas: "Prólogo José Mantero" },
+{ id: 1039, title: "Pederastia en la Iglesia católica", author: "RODRÍGUEZ, Pepe", category: "homosexualidad-religión", editorial: "Ediciones B", ciudad: "Barcelona", año: "2002", notas: "" },
+{ id: 1040, title: "Lo que la BIBLIA realmente dice sobre la homosexualidad", author: "HELMINIAK, Daniel A.", category: "homosexualidad-religión", editorial: "Egales", ciudad: "Barcelona", año: "2003", notas: "" },
+{ id: 1041, title: "Una fe más allá del resentimiento", author: "ALISON, James", category: "homosexualidad-religión", editorial: "Herder", ciudad: "Barcelona", año: "2003", notas: "" },
+{ id: 1042, title: "Huesos de Sodoma", author: "VILLENA, Luis Antonio de", category: "homosexualidad-ensayos", editorial: "Odisea S.21", ciudad: "Madrid", año: "2004", notas: "" },
+{ id: 1043, title: "Hasta en las mejores familias", author: "GENERELO, Jesús", category: "homosexualidad-manuales", editorial: "Egales", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1044, title: "La sombra de la duda", author: "REDMANN, J.M.", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "2004", notas: "Premio Lambda Literatura" },
+{ id: 1045, title: "Su cuerpo era su gozo", author: "GIMENO, Beatriz", category: "novela", editorial: "Foca", ciudad: "Madrid", año: "2005", notas: "" },
+{ id: 1046, title: "Pierre et Gilles", author: "MARCADÉ, B. / CAMERON, D.", category: "arte-fotografía", editorial: "Taschen", ciudad: "Colonia", año: "1997", notas: "Sólo consulta en sede" },
+{ id: 1047, title: "Desnuda en la tierra prometida", author: "FADERMAN, Lillian", category: "autobiografías", editorial: "Martínez Roca", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1048, title: "El Bailarín", author: "McCANN, Colum", category: "novela", editorial: "RBA", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1049, title: "California", author: "MENDICUTTI, Eduardo", category: "novela", editorial: "Tusquets", ciudad: "Barcelona", año: "2005", notas: "" },
+{ id: 1050, title: "No me llames cariño", author: "FRANC, Isabel", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1051, title: "La densidad de las almas", author: "RICE, Christopher", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1052, title: "Tu piel en mi boca", author: "AA. VV.", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1053, title: "El hombre bravo", author: "WARREN, Patricia Nell", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "2003", notas: "" },
+{ id: 1054, title: "En brazos de Caín", author: "LAURO, Alberto", category: "novela", editorial: "Odisea S.21", ciudad: "Madrid", año: "2004", notas: "Ganador VI Premio Odisea" },
+{ id: 1055, title: "Punto y aparte", author: "GUZNER, Susana", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1056, title: "La balada de Oscar Wilde", author: "DALMAU, Miguel", category: "novela", editorial: "Planeta", ciudad: "Barcelona", año: "2000", notas: "" },
+{ id: 1057, title: "Teleny", author: "WILDE, Oscar", category: "novela", editorial: "Roger", ciudad: "Donostia", año: "2000", notas: "" },
+{ id: 1058, title: "La mirada homosexual", author: "ARCHIVOS DE LA FILMOTECA", category: "cine", editorial: "Ivac/Generalitat Valenciana", ciudad: "Valencia", año: "2006", notas: "Alberto Mira (ed.)" },
+{ id: 1059, title: "Nadador nocturno", author: "OLSHAN, Joseph", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1060, title: "Pompas fúnebres", author: "GENET, Jean", category: "novela", editorial: "Alba", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1061, title: "La carrera de Harlan", author: "WARREN, Patricia Nell", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "2003", notas: "" },
+{ id: 1062, title: "Santa María de las Flores", author: "GENET, Jean", category: "novela", editorial: "Liberduplex", ciudad: "España", año: "2004", notas: "" },
+{ id: 1063, title: "Locura Parisina", author: "DUTEURTRE, Benoit", category: "novela", editorial: "Odisea S.21", ciudad: "Madrid", año: "2003", notas: "Ganador Premio Médicis" },
+{ id: 1064, title: "Dibujos eróticos", author: "COCTEAU, Jean", category: "arte-dibujo", editorial: "Taschen", ciudad: "Colonia", año: "1999", notas: "Sólo consulta en sede" },
+{ id: 1065, title: "Piel de serpiente", author: "USABIAGA, Pedro", category: "arte-fotografía", editorial: "Editusa", ciudad: "Donostia", año: "1995", notas: "Sólo consulta en sede" },
+{ id: 1066, title: "Vidas del arco iris", author: "PETIT, Jordi", category: "homosexualidad-ensayos", editorial: "Debolsillo", ciudad: "Barcelona", año: "2004", notas: "Prólogo Xabier Sardá" },
+{ id: 1067, title: "Jóvenes Italianos - Fotografiados en 1900", author: "GLOEDEN, Wilhem Von", category: "arte-fotografía", editorial: "Galerie Janssen", ciudad: "Berlin", año: "1991", notas: "Sólo consulta en sede" },
+{ id: 1068, title: "Fête galante", author: "GOITIA, Ignacio", category: "arte-catálogo", editorial: "Univ. Pública de Navarra", ciudad: "Navarra", año: "2005", notas: "Sólo consulta en sede" },
+{ id: 1069, title: "La nave de los muchachos griegos", author: "VILLENA, Luis Antonio de", category: "novela", editorial: "Alfaguara", ciudad: "Madrid", año: "2003", notas: "" },
+{ id: 1070, title: "Una memoria", author: "VIDAL, Gore", category: "autobiografías", editorial: "Grijalbo Mondadori", ciudad: "Barcelona", año: "1999", notas: "" },
+{ id: 1071, title: "Plata quemada", author: "PIGLIA, Ricardo", category: "novela", editorial: "Anagrama", ciudad: "Barcelona", año: "2000", notas: "Premio Planeta 1997" },
+{ id: 1072, title: "Botín de guerra", author: "MOLINA, Miguel de", category: "autobiografías", editorial: "Planeta", ciudad: "Barcelona", año: "1998", notas: "" },
+{ id: 1073, title: "Gay Hiztegia", author: "ARANA, Aitor", category: "diccionarios", editorial: "Txalaparta", ciudad: "Tafalla", año: "2005", notas: "Dedicado por el autor" },
+{ id: 1074, title: "Armarios en la catedral", author: "SANTANDREU, Jaume", category: "novela", editorial: "La Tempestad", ciudad: "Barcelona", año: "2004", notas: "Premio Terenci Moix/Fundación Arena" },
+{ id: 1075, title: "Podéis besaros", author: "KÖNIG, Ralf", category: "comics", editorial: "La Cúpula", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1076, title: "Suspiros de monja y otras mariconadas", author: "KÖNIG, Ralf", category: "comics", editorial: "La Cúpula", ciudad: "Barcelona", año: "2005", notas: "" },
+{ id: 1077, title: "Roy & Al", author: "KÖNIG, Ralf", category: "comics", editorial: "La Cúpula", ciudad: "Barcelona", año: "2005", notas: "" },
+{ id: 1078, title: "Vacaciones en Ibiza", author: "SCHIMEL, Lawrence; SEBAS", category: "comics", editorial: "Egales", ciudad: "Barcelona", año: "2003", notas: "" },
+{ id: 1079, title: "Rey y Rey", author: "HAAN, Linda de; NIJLAND, Stern", category: "cuentos infantiles", editorial: "Serres", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1080, title: "Pirritx eta Porrotx Arrantzan", author: "MURUA, Mitxel; TOKERO, Julen", category: "cuentos infantiles", editorial: "Elkar", ciudad: "Donostia", año: "2004", notas: "Colabora Gehitu" },
+{ id: 1081, title: "Pirritx eta Porrotx Herriko postariak", author: "MURUA, Mitxel; TOKERO, Julen", category: "cuentos infantiles", editorial: "Elkar", ciudad: "Donostia", año: "2004", notas: "Colabora Gehitu" },
+{ id: 1082, title: "Ciudad y orientación sexual", author: "CIUDAD Y ORIENTACION SEXUAL", category: "sociología-grupos sociales", editorial: "Ayto. Coslada", ciudad: "Madrid", año: "2004", notas: "" },
+{ id: 1083, title: "Ane eta ahatetxoak", author: "LORENZO, Manuel R.; ERLICH, Bernardo", category: "cuentos infantiles", editorial: "a fortiori", ciudad: "Bilbo", año: "2005", notas: "Nº 01" },
+{ id: 1084, title: "Ana y los patos", author: "LORENZO, Manuel R.; ERLICH, Bernardo", category: "cuentos infantiles", editorial: "a fortiori", ciudad: "Bilbo", año: "2005", notas: "Nº 01" },
+{ id: 1085, title: "Isla mágica", author: "ESTECHA PASTOR, Raquel; DOMÍNGUEZ, Angel", category: "cuentos infantiles", editorial: "a fortiori", ciudad: "Bilbo", año: "2005", notas: "Nº 02" },
+{ id: 1086, title: "Piratas y quesitos", author: "HERRERA, Carmen; FILELLA, Luis", category: "cuentos infantiles", editorial: "a fortiori", ciudad: "Bilbo", año: "2005", notas: "Nº 03" },
+{ id: 1087, title: "Aitor tiene dos mamás", author: "MENDIETA, M. José; PIÉROLA, Mabel", category: "cuentos infantiles", editorial: "Bellaterra", ciudad: "Barcelona", año: "2006", notas: "Dedicado por la autora" },
+{ id: 1088, title: "El mundo de Jane", author: "BRADDOCK, Paige", category: "comics", editorial: "La Cúpula", ciudad: "Barcelona", año: "2005", notas: "Vol 1" },
+{ id: 1089, title: "Contradanza", author: "ORS, Francisco", category: "teatro", editorial: "Egales", ciudad: "Barcelona", año: "2005", notas: "" },
+{ id: 1090, title: "Educar en la diversidad", author: "SIMONIS, Angie [Comp]", category: "educación sexual", editorial: "Laertes", ciudad: "Barcelona", año: "2005", notas: "II Jornadas DecideT" },
+{ id: 1091, title: "Brokeback mountain. En terreno vedado", author: "PROULX, Annie", category: "novela", editorial: "Siglo XXI", ciudad: "Madrid", año: "2006", notas: "" },
+{ id: 1092, title: "Más bollos de cuidado", author: "BECHDEL, Alison", category: "comics", editorial: "Egales", ciudad: "Barcelona", año: "2005", notas: "" },
+{ id: 1093, title: "Max & Sven", author: "BOUDEN, Tom", category: "comics", editorial: "La Cúpula", ciudad: "Barcelona", año: "2005", notas: "" },
+{ id: 1094, title: "Wendel. Sus primeras aventuras", author: "CRUSE, Howard", category: "comics", editorial: "La Cúpula", ciudad: "Barcelona", año: "2005", notas: "" },
+{ id: 1095, title: "Cómo superar la homofobia", author: "GENERELO LANASPA, Jesús", category: "educación sexual", editorial: "Gay saber", ciudad: "Madrid", año: "2004", notas: "" },
+{ id: 1096, title: "¿Vives rodeado de heterosexuales?", author: "SUÁREZ, Mario", category: "educación sexual", editorial: "Gay saber", ciudad: "Madrid", año: "2005", notas: "" },
+{ id: 1097, title: "Las horas", author: "CUNNINGHAM, Michael", category: "novela", editorial: "El Aleph", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1098, title: "Acqua alta", author: "LEON, Donna", category: "novela", editorial: "Seix Barral", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1099, title: "Madres lesbianas. Hijos e hijas de lesbianas hablan de sus vidas", author: "RAFKIN, Louise", category: "lesbianismo-familias", editorial: "Bellaterra", ciudad: "Barcelona", año: "2005", notas: "" },
+{ id: 1100, title: "Madres lesbianas. Guía para formar una familia feliz", author: "JOHNSON, Suzanne M.; O'CONNOR, Elizabeth", category: "lesbianismo-familias", editorial: "Lumen", ciudad: "Buenos Aires", año: "2005", notas: "" },
+{ id: 1101, title: "Emancipación y matrimonio", author: "RUIZ ALONSO, Celia", category: "feminismo-ensayos", editorial: "Alameda", ciudad: "Madrid", año: "1970", notas: "" },
+{ id: 1102, title: "Homosexualidad: secreto de familia", author: "PÉREZ SANCHO, Begoña", category: "homosexualidad-familias", editorial: "Egales", ciudad: "Barcelona", año: "2005", notas: "Present. Alfonso Alonso" },
+{ id: 1103, title: "La chica danesa", author: "EBERSHOF, David", category: "novela", editorial: "Anagrama", ciudad: "Barcelona", año: "2001", notas: "" },
+{ id: 1104, title: "Media hora más contigo", author: "RULE, Jane", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "2005", notas: "" },
+{ id: 1105, title: "Detectives BAM", author: "GUZNER, Susana", category: "teatro", editorial: "Ellas", ciudad: "Sabadell", año: "2005", notas: "" },
+{ id: 1106, title: "A por todas", author: "MORÁN, Libertad", category: "novela", editorial: "Odisea S.21", ciudad: "Madrid", año: "2005", notas: "" },
+{ id: 1107, title: "Rápida infernal", author: "QUILES, Jennifer", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1108, title: "Los expulsados del paraíso. La transexualidad a debate", author: "MONTILLA VALERIO, Javier", category: "transexualidad-ensayos", editorial: "Maikalili", ciudad: "Barcelona", año: "2005", notas: "Prólogo Carla Antonelli" },
+{ id: 1109, title: "La gesta del nombre propio", author: "BERKINS, Lohana; FERNÁNDEZ, Josefina [Coords.]", category: "transexualidad-informe", editorial: "Madres de Plaza de Mayo", ciudad: "Buenos Aires", año: "2005", notas: "" },
+{ id: 1110, title: "Orientaciones. Revista de homosexualidades 10", author: "ORIENTACIONES", category: "revista", editorial: "Fundación Triángulo", ciudad: "Madrid", año: "2005", notas: "" },
+{ id: 1111, title: "Más allá del límite", author: "SEABROOK, Mike", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "1998", notas: "" },
+{ id: 1112, title: "El último verano", author: "MONETTE, Paul", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "1999", notas: "" },
+{ id: 1113, title: "Crónica de la noche", author: "TÓIBÍN, Colm", category: "novela", editorial: "Emecé", ciudad: "España", año: "2002", notas: "" },
+{ id: 1114, title: "Agárrate fuerte", author: "BRAM, Christopher", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "2000", notas: "" },
+{ id: 1115, title: "SIDA. Relatos desde la pandemia", author: "LORENZO GONZÁLEZ, Juan Francisco", category: "relatos", editorial: "F. Ibañez de Aldecoa", ciudad: "Burgos", año: "2006", notas: "Prólogo Vicente Verdú" },
+{ id: 1116, title: "Ahora que te tengo. (Sida en España 1997-2006: años de esperanza)", author: "APEZTEGUIA, Fermin", category: "testimonios-sida", editorial: "Fund. Wellcome", ciudad: "España", año: "2006", notas: "Dedicado socio donante" },
+{ id: 1117, title: "La homosexualidad sin prejuicios", author: "WEINBERG, George", category: "homosexualidad-ensayos", editorial: "Granica", ciudad: "Barcelona", año: "1977", notas: "" },
+{ id: 1118, title: "La cuestión homosexual", author: "TRIPP, C.A.", category: "homosexualidad-ensayos", editorial: "Edaf", ciudad: "Madrid", año: "1978", notas: "" },
+{ id: 1119, title: "El gladiador de Chueca", author: "SANRUNE, Carlos", category: "novela", editorial: "Laertes", ciudad: "Barcelona", año: "1992", notas: "" },
+{ id: 1120, title: "Historia y análisis político del lesbianismo", author: "GIMENO, Beatriz", category: "lesbianismo-historia", editorial: "Gedisa", ciudad: "Barcelona", año: "2005", notas: "Dedicado por la autora" },
+{ id: 1121, title: "La mujer del pelo rojo", author: "BRUNEL, Sigrid", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "2000", notas: "" },
+{ id: 1122, title: "El danzarín y la danza", author: "HOLLERAN, Andrew", category: "novela", editorial: "Argos Vergara", ciudad: "Barcelona", año: "1979", notas: "" },
+{ id: 1123, title: "Sexo, amor y homofobia", author: "AMNISTIA INTERNACIONAL; BAIRD, Vanessa", category: "homosexualidad-derecho", editorial: "Egales - Amnistia Internacional", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1124, title: "Stonewall Seguir exigiendo respeto", author: "AMNISTIA INTERNACIONAL", category: "homosexualidad-derecho", editorial: "Amnistía Internacional", ciudad: "Madrid", año: "2006", notas: "" },
+{ id: 1125, title: "Amigos y vecinos", author: "SCHIMEL, Lawrence; ROJO, Sara", category: "novela", editorial: "La Librería", ciudad: "Madrid", año: "2005", notas: "" },
+{ id: 1126, title: "La mujer, a debate", author: "FUENTE, Jaime de la", category: "feminismo-ensayos", editorial: "Alameda", ciudad: "Madrid", año: "1970", notas: "" },
+{ id: 1127, title: "El lugar sin límites", author: "DONOSO, José", category: "novela", editorial: "Seix Barral", ciudad: "Barcelona", año: "1987", notas: "" },
+{ id: 1128, title: "Heraclés", author: "GIL-ALBERT, Juan", category: "ensayo", editorial: "Pre-Textos", ciudad: "Valencia", año: "2001", notas: "" },
+{ id: 1129, title: "Ni esclava, ni adorno", author: "GIL CARNICERO, Purificación", category: "feminismo-ensayos", editorial: "Alameda", ciudad: "Madrid", año: "1970", notas: "" },
+{ id: 1130, title: "Los derechos jurídicos de la mujer", author: "BALADA ORTEGA, Luis", category: "feminismo-ensayos", editorial: "Alameda", ciudad: "Madrid", año: "1971", notas: "" },
+{ id: 1131, title: "Masculino singular", author: "RAMOS GARCÍA, Pedro A.", category: "novela", editorial: "Edaf", ciudad: "Madrid", año: "2006", notas: "Enviado por el autor" },
+{ id: 1132, title: "Herramientas para combatir el bullying homofóbico", author: "PLATERO MÉNDEZ, R.; GÓMEZ CETO, E.", category: "educación sexual", editorial: "Talasa", ciudad: "Madrid", año: "2007", notas: "" },
+{ id: 1133, title: "Cultura, homosexualidad y homofobia", author: "SIMONIS, Angie [Ed.]", category: "lesbianismo-ensayos", editorial: "Laertes", ciudad: "Barcelona", año: "2007", notas: "" },
+{ id: 1134, title: "Desollado vivo", author: "WHITE, Edmund", category: "novela", editorial: "Destino", ciudad: "Barcelona", año: "1996", notas: "" },
+{ id: 1135, title: "Un lugar en el que nunca he estado", author: "LEAVITT, David", category: "novela", editorial: "Anagrama", ciudad: "Barcelona", año: "1994", notas: "" },
+{ id: 1136, title: "Borrador para un diccionario de las amantes", author: "WITTIG, Monique; ZEIG, Wande", category: "novela", editorial: "Lumen", ciudad: "Barcelona", año: "1981", notas: "" },
+{ id: 1137, title: "Gente nocturna", author: "GIFFORD, Barry", category: "novela", editorial: "Plaza & Janés", ciudad: "Barcelona", año: "1994", notas: "" },
+{ id: 1138, title: "El rostro velado. Travestismo e identidad en el arte", author: "G. CORTÉS, José Miguel", category: "arte-catálogo", editorial: "Gipuzkoako Foru Aldundia", ciudad: "Donostia", año: "1997", notas: "Sólo consulta en sede" },
+{ id: 1139, title: "Transgenéric@s", author: "AA. VV.", category: "arte-catálogo", editorial: "Gipuzkoako Foru Aldundia", ciudad: "Donostia", año: "1998", notas: "Sólo consulta en sede" },
+{ id: 1140, title: "Gays y lesbianas. Vida y cultura. Un legado universal", author: "ALDRICH, Robert [Ed.]", category: "homosexualidad-historia", editorial: "Nerea", ciudad: "Donostia", año: "2006", notas: "Sólo consulta en sede" },
+{ id: 1141, title: "Salbazioko Armada", author: "TAIA, Abdelá", category: "novela", editorial: "Alberdania", ciudad: "Irun", año: "2007", notas: "Dedicado por el autor" },
+{ id: 1142, title: "El ejército de salvación", author: "TAIA, Abdelá", category: "novela", editorial: "Alberdania", ciudad: "Irun", año: "2007", notas: "Dedicado por el autor" },
+{ id: 1143, title: "Photoles 07. Lesbianas de la A a la Z", author: "PHOTOLES 07", category: "arte-fotografía", editorial: "Cogam", ciudad: "Madrid", año: "2007", notas: "Sólo consulta en sede" },
+{ id: 1144, title: "El camino hacia la igualdad. 30 años de lucha por los derechos LGTB en el Estado Español", author: "EL CAMINO HACIA LA IGUALDAD", category: "homosexualidad-historia-catálogo", editorial: "Cogam", ciudad: "Madrid", año: "2007", notas: "Sólo consulta en sede" },
+{ id: 1145, title: "Sexuaren inguruko sinesmenak eta tabuak", author: "BASANDERE Taldea", category: "educación sexual", editorial: "Gaiak", ciudad: "Donostia", año: "1999", notas: "" },
+{ id: 1146, title: "Histoire des relations sexuelles", author: "MORALI-DANINOS, André", category: "educación sexual", editorial: "Presses Universitaires de France", ciudad: "Paris", año: "1980", notas: "" },
+{ id: 1147, title: "Brooklyn Follies", author: "AUSTER, Paul", category: "novela", editorial: "Anagrama", ciudad: "Barcelona", año: "2007", notas: "" },
+{ id: 1148, title: "Ácido sulfúrico", author: "NOTHOMB, Amélie", category: "novela", editorial: "Anagrama", ciudad: "Barcelona", año: "2007", notas: "" },
+{ id: 1149, title: "Hierba mora", author: "MOURE, Teresa", category: "novela", editorial: "Lumen", ciudad: "Barcelona", año: "2006", notas: "Premio Xerais 05-Crítica 06" },
+{ id: 1150, title: "Las razones de Jo", author: "FRANC, Isabel", category: "novela", editorial: "Lumen", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1151, title: "Alma mater", author: "BROWN, Rita Mae", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1152, title: "Nosotras", author: "AA. VV.", category: "relatos", editorial: "Lumen", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1153, title: "Mujeres estupendas", author: "MORÁN, Libertad", category: "novela", editorial: "Odisea S.21", ciudad: "Madrid", año: "2006", notas: "" },
+{ id: 1154, title: "Con la boca abierta", author: "ALONSO, Odette", category: "relatos", editorial: "Odisea S.21", ciudad: "Madrid", año: "2006", notas: "" },
+{ id: 1155, title: "Secretos compartidos", author: "MARTÍNEZ, Mado", category: "relatos", editorial: "Odisea S.21", ciudad: "Madrid", año: "2007", notas: "" },
+{ id: 1156, title: "Arco iris diferentes", author: "DRUCKER, Peter", category: "ensayo", editorial: "Siglo XXI", ciudad: "Madrid", año: "2004", notas: "" },
+{ id: 1157, title: "Las noches salvajes", author: "COLLARD, Cyril", category: "novela", editorial: "Tusquets", ciudad: "Barcelona", año: "2002", notas: "" },
+{ id: 1158, title: "Al amigo que no me salvó la vida", author: "GUIBERT, Hervé", category: "biografías", editorial: "Tusquets", ciudad: "Barcelona", año: "1998", notas: "" },
+{ id: 1159, title: "Primera plana. La construcción de una cultura queer en España", author: "HERRERO BRASAS, Juan A.", category: "testimonios", editorial: "Egales", ciudad: "Barcelona", año: "2007", notas: "" },
+{ id: 1160, title: "Mujeres, globalización y derechos humanos", author: "MAQUIEIRA, Virginia (Ed.)", category: "feminismo-ensayos", editorial: "Cátedra. Universitat de Valencia", ciudad: "Valencia", año: "2006", notas: "" },
+{ id: 1161, title: "Los años olvidados", author: "DUQUE MOROS, Antonio", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1162, title: "La ciudad de la noche", author: "RECHY, John", category: "novela", editorial: "Egales", ciudad: "Barcelona", año: "2007", notas: "" },
+{ id: 1163, title: "El diario de J.L.", author: "REI, Álex", category: "novela", editorial: "Odisea S.21", ciudad: "Madrid", año: "2005", notas: "Ganador VII Premio Odisea" },
+{ id: 1164, title: "Sígueme", author: "MARTÍ, Olga", category: "novela", editorial: "Odisea S.21", ciudad: "Madrid", año: "2005", notas: "Finalista VII Premio Odisea" },
+{ id: 1165, title: "Cruzando el límite", author: "BELTRÁN, Hecheres", category: "novela", editorial: "Odisea S.21", ciudad: "Madrid", año: "2006", notas: "Ganador VIII Premio Odisea" },
+{ id: 1166, title: "No sólo por dinero", author: "TORT, Joan", category: "novela", editorial: "Odisea S.21", ciudad: "Madrid", año: "2006", notas: "Finalista VIII Premio Odisea" },
+{ id: 1167, title: "Chuecatown. La boda", author: "RAFA", category: "comics", editorial: "Odisea S.21", ciudad: "Madrid", año: "2003", notas: "" },
+{ id: 1168, title: "Chuecatown. No hay dos sin tres", author: "RAFA", category: "comics", editorial: "Odisea S.21", ciudad: "Madrid", año: "2004", notas: "" },
+{ id: 1169, title: "¡Ama como quieras!", author: "CÁDIZ, Ximo", category: "educación sexual", editorial: "Del Bullent", ciudad: "Valencia", año: "2007", notas: "" },
+{ id: 1170, title: "Vagos, maleantes… y homosexuales. La represión a los homosexuales durante el franquismo", author: "BAÍDEZ APARICIO, Nathan", category: "homosexualidad-historia", editorial: "Malhivern", ciudad: "La Garriga", año: "2007", notas: "Prólogo José Mantero" },
+{ id: 1171, title: "Transgenerismos", author: "MEJÍA, Norma", category: "transexualidad-ensayos", editorial: "Bellaterra", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1172, title: "Nanclares Memoria Viva", author: "NANCLARES MEMORIA VIVA", category: "historia", editorial: "Eusko Jaurlaritza", ciudad: "Gazteiz", año: "2007", notas: "Sólo consulta en sede" },
+{ id: 1173, title: "Poesía a favor de la vida", author: "EZKER LIBURUXKAK", category: "poesía", editorial: "Ezkergunea", ciudad: "Bilbo", año: "2008", notas: "" },
+{ id: 1174, title: "Memorias trans. Transexuales, transformistas y travestis", author: "PIERROT", category: "testimonios", editorial: "morales i torres", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1175, title: "Viaje al centro de la infamia", author: "SOSA MACHÍN, Miguel Ángel", category: "homosexualidad-historia", editorial: "Anroart", ciudad: "Las Palmas de Gran Canaria", año: "2006", notas: "" },
+{ id: 1176, title: "Las memorias de Yohanan. El amante de Jesús", author: "LOMBRONI, Leonardo", category: "novela", editorial: "Dunken", ciudad: "Buenos Aires", año: "2007", notas: "Nota del Autor" },
+{ id: 1177, title: "Visibilidad y participación social de las mujeres lesbianas en Euskadi", author: "MUJIKA FLORES, Inmaculada", category: "lesbianismo-ensayos", editorial: "Ararteko", ciudad: "Gazteiz", año: "2007", notas: "Dedicado por la autora" },
+{ id: 1178, title: "Del gueto a la calle. El movimiento gay y lesbiano en el País Vasco y Navarra, 1975-1983", author: "LÓPEZ ROMO, Raúl", category: "homosexualidad-historia", editorial: "Tercera Prensa", ciudad: "Donostia", año: "2008", notas: "Dedicado por el autor" },
+{ id: 1179, title: "25 Historias 25 Vidas", author: "CESIDA", category: "testimonios-sida", editorial: "Cesida - Pfizer", ciudad: "Madrid", año: "2007", notas: "" },
+{ id: 1180, title: "Ciudad final", author: "GUTIER, Kama", category: "novela", editorial: "Montesinos", ciudad: "Barcelona", año: "2007", notas: "Dedicado por la autora" },
+{ id: 1181, title: "Historias del 8 de Marzo", author: "AA. VV.", category: "relatos", editorial: "Fundación bbk", ciudad: "Bilbo", año: "2008", notas: "" },
+{ id: 1182, title: "Los lazos del número", author: "TOLARETXIPI, Eli", category: "poesía", editorial: "Bassarai", ciudad: "Gazteiz", año: "2003", notas: "Dedicado por la autora" },
+{ id: 1183, title: "Como pequeños fuegos", author: "LUIS, María Socorro", category: "poesía", editorial: "Itxaropena", ciudad: "Zarauz", año: "2004", notas: "Dedicado por la autora" },
+{ id: 1184, title: "La pasión de vivir Con un montón de años", author: "GINZO, Juana", category: "ensayo", editorial: "Temas de Hoy", ciudad: "Madrid", año: "2000", notas: "" },
+{ id: 1185, title: "Felicitats! Un conte sobre la diversitat familiar", author: "PLATAFORMA D´ACTIVISTES SIN VERGÜENZA / Roc Alemany", category: "cuentos infantiles", editorial: "ACT!", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1186, title: "SATURRARAN la cárcel de mujeres, en la memoria", author: "SATURRARAN la cárcel de mujeres, en la memoria", category: "historia", editorial: "Eusko Jaurlaritza", ciudad: "Gazteiz", año: "2007", notas: "Sólo consulta en sede" },
+{ id: 1187, title: "Un lugar para la memoria", author: "UN LUGAR PARA LA MEMORIA", category: "historia", editorial: "Eusko Jaurlaritza", ciudad: "Gazteiz", año: "2007", notas: "Sólo consulta en sede" },
+{ id: 1188, title: "GURS ...en la memoria", author: "GURS ...en la memoria", category: "historia", editorial: "Eusko Jaurlaritza", ciudad: "Gazteiz", año: "2007", notas: "Sólo consulta en sede" },
+{ id: 1189, title: "Voces de mujeres en la diversidad sexual", author: "MUJIKA, Inmaculada / VILLAR, Amparo", category: "lesbianismo-ensayos", editorial: "Aldarte", ciudad: "Bilbo", año: "2008", notas: "Sólo consulta en sede" },
+{ id: 1190, title: "Ser transexual", author: "GÓMEZ Gil, Esther / ESTEVA de ANTONIO, Isabel", category: "ensayo", editorial: "Glosa", ciudad: "Barcelona", año: "2006", notas: "Sólo consulta en sede" },
+{ id: 1191, title: "The complete kake comics", author: "TOM OF FINLAND", category: "comics", editorial: "Taschen", ciudad: "London", año: "2008", notas: "Sólo consulta en sede" },
+{ id: 1192, title: "Diccionario Médico Teide", author: "SEGATORE, Luigi", category: "diccionarios", editorial: "Teide", ciudad: "Barcelona", año: "1980", notas: "Sólo consulta en sede" },
+{ id: 1193, title: "The Big Penis Book", author: "AA. VV.", category: "arte-fotografía", editorial: "Taschen", ciudad: "London", año: "2008", notas: "Sólo consulta en sede" },
+{ id: 1194, title: "Vida de una fotógrafa 1990-2005", author: "LEIBOVITZ, Annie", category: "arte-fotografía", editorial: "Random House", ciudad: "New York", año: "2006", notas: "Sólo consulta en sede" },
+{ id: 1195, title: "FELGTB Memoria Actividades 2009", author: "FELGTB", category: "documentación", editorial: "FELGTB", ciudad: "Madrid", año: "2009", notas: "Sólo consulta en sede" },
+{ id: 1196, title: "EMPIRIA. Revista de metodología de ciencias sociales", author: "EMPIRIA", category: "revista", editorial: "Uned", ciudad: "Madrid", año: "2008", notas: "Presentación Raquel Osborne" },
+{ id: 1197, title: "Amor, odio y ley. Despenalizar la homosexualidad", author: "AMNISTÍA INTERNACIONAL", category: "derechos humanos", editorial: "Amnistía Internacional", ciudad: "London", año: "2008", notas: "" },
+{ id: 1198, title: "Estudio sociológico y jurídico sobre homosexualidad y mundo islámico", author: "MARTÍN ROMERO, Lola", category: "ensayo", editorial: "COGAM", ciudad: "Madrid", año: "2007", notas: "" },
+{ id: 1199, title: "Los derechos humanos de la mujer. Vol 08", author: "CURSOS de Derechos Humanos de Donostia-Sn. Sn.", category: "derechos humanos", editorial: "Univ. del País Vasco", ciudad: "Bilbo", año: "2007", notas: "Soroeta Liceras, Juan (ed.)" },
+{ id: 1200, title: "Vivir más y mejor. 25 años de presencia social del VIH/SIDA", author: "BUENO ABAD, José R., MADRIGAL VÍLCHEZ, Amparo", category: "sida-historia", editorial: "Universitat de València", ciudad: "Valencia", año: "2008", notas: "" },
+{ id: 1201, title: "Sanar a través de nuestras vidas. Las mujeres construyen la memoria histórica del VIH", author: "JOHNSON, Jenifer L. (ed.)", category: "testimonios-sida", editorial: "Johnson, Jenifer L.", ciudad: "Girona", año: "2009", notas: "Contiene DVD" },
+{ id: 1202, title: "La transmisión de valores a menores", author: "ELZO, Javier (Director)", category: "educación", editorial: "Ararteko", ciudad: "Gazteiz", año: "2009", notas: "Contiene DVD" },
+{ id: 1203, title: "Adingabekoei balioak transmititzea", author: "ELZO, Javier (Zuzendari)", category: "educación", editorial: "Ararteko", ciudad: "Gazteiz", año: "2009", notas: "DVDarekin" },
+{ id: 1204, title: "Diccionario gay-lésbico", author: "RODRÍGUEZ GONZÁLEZ, Félix", category: "diccionarios", editorial: "Gredos", ciudad: "Madrid", año: "2008", notas: "" },
+{ id: 1205, title: "El marica, la bruja y el armario. Misoginia gay y homofobia femenina en el cine", author: "NABAL ARAGÓN, Eduardo", category: "cine", editorial: "Egales", ciudad: "Barcelona", año: "2007", notas: "Dedicado por el autor" },
+{ id: 1206, title: "El celuloide rosa", author: "GARCÍA RODRÍGUEZ, Javier", category: "cine", editorial: "La Tempestad", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1207, title: "Miradas insumisas. Gays y lesbianas en el cine", author: "MIRA, Alberto", category: "cine", editorial: "Egales", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1208, title: "Cómo salí del armario. Confesiones de un ex-sacerdote", author: "MORENO, Daniel", category: "testimonios", editorial: "Flor del Viento", ciudad: "Barcelona", año: "2003", notas: "" },
+{ id: 1209, title: "Teologías gay y lesbiana. Repeticiones con diferencia crítica", author: "STUART, Elizabeth", category: "teología", editorial: "Melusina", ciudad: "Barcelona", año: "2005", notas: "" },
+{ id: 1210, title: "Amor sin nombre. La vida de los gays y lesbianas en el islam", author: "WHITAKER, Brian", category: "homosexualidad-religión", editorial: "Egales", ciudad: "Barcelona", año: "2007", notas: "" },
+{ id: 1211, title: "Está bien ser diferente", author: "PARR, Todd", category: "cuentos infantiles", editorial: "RBA Serres", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1212, title: "Tres con tango", author: "RICHARDSON, Justin / PARNELL, Peter / COLE, Henry", category: "cuentos infantiles", editorial: "RBA Serres", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1213, title: "Titiritesa", author: "QUINTIÁ, Xerardo / QUARELLO, Maurizio A.C.", category: "cuentos infantiles", editorial: "OQO", ciudad: "Pontevedra", año: "2007", notas: "" },
+{ id: 1214, title: "Normal", author: "CARMONA PERAL, Olga", category: "comics", editorial: "Dibbuks", ciudad: "Madrid", año: "2007", notas: "" },
+{ id: 1215, title: "La familia", author: "FUNDACIÓN LUCÍA, Calafell, Roser", category: "cuentos infantiles", editorial: "Fundación Lucía Sida Pediátrico", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1216, title: "Cómo funciona mi cuerpo", author: "FUNDACIÓN LUCÍA, Andreu, Miquel Àngel", category: "cuentos infantiles", editorial: "Fundación Lucía Sida Pediátrico", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1217, title: "Historia del VIH", author: "FUNDACIÓN LUCÍA, Cañero, Silvia", category: "cuentos infantiles", editorial: "Fundación Lucía Sida Pediátrico", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1218, title: "Las consultas en el hospital", author: "FUNDACIÓN LUCÍA, Barbal, Marta", category: "cuentos infantiles", editorial: "Fundación Lucía Sida Pediátrico", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1219, title: "Confiar y compartir", author: "FUNDACIÓN LUCÍA, Allepuz, Ana", category: "cuentos infantiles", editorial: "Fundación Lucía Sida Pediátrico", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1220, title: "Un día cualquiera", author: "FUNDACIÓN LUCÍA, Costa, Marta", category: "cuentos infantiles", editorial: "Fundación Lucía Sida Pediátrico", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1221, title: "Mis amigos del hospital", author: "FUNDACIÓN LUCÍA, May", category: "cuentos infantiles", editorial: "Fundación Lucía Sida Pediátrico", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1222, title: "La medicación", author: "FUNDACIÓN LUCÍA, Rosas, Alejandro", category: "cuentos infantiles", editorial: "Fundación Lucía Sida Pediátrico", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1223, title: "El futuro", author: "FUNDACIÓN LUCÍA, Arjona, Rafael", category: "cuentos infantiles", editorial: "Fundación Lucía Sida Pediátrico", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1224, title: "Los derechos de los niños", author: "FUNDACIÓN LUCÍA, RR, Justo", category: "cuentos infantiles", editorial: "Fundación Lucía Sida Pediátrico", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1225, title: "Txiukue", author: "OLAIZOLA, Alaitz / ZABALETA, Jon", category: "cuentos infantiles", editorial: "Erein", ciudad: "Donostia", año: "2005", notas: "" },
+{ id: 1226, title: "Mari Joseri zergatik deitzen diote Joxe Mari?", author: "CALLEJA, Seve / LOSANTOS, Cristina", category: "cuentos infantiles", editorial: "Elkar", ciudad: "Donostia", año: "2010", notas: "" },
+{ id: 1227, title: "Elkarren gustukoak gara!", author: "JUANOLO", category: "cuentos infantiles", editorial: "Tàndem", ciudad: "Valencia", año: "2006", notas: "Kattalingorri-AMPGIL" },
+{ id: 1228, title: "Sexismoa maitagarrien ipuinetan", author: "ETXEBERRIA ZAPIRAIN, Iñigo", category: "ensayo", editorial: "Eusko Jaurlaritza", ciudad: "Gazteiz", año: "2008", notas: "" },
+{ id: 1229, title: "Deseo y resistencia. Treinta años de movilización lesbiana en el Estado Español (1977-2007)", author: "TRUJILLO BARBADILLO, Gracia", category: "lesbianismo-historia", editorial: "Egales", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1230, title: "La marginación homosexual en la España de la Transición", author: "SORIANO GIL, Manuel Ángel", category: "homosexualidad-historia", editorial: "Egales", ciudad: "Barcelona", año: "2005", notas: "" },
+{ id: 1231, title: "Una discriminación universal. La homosexualidad bajo el franquismo y la transición", author: "UGARTE PÉREZ, Javier (Ed.)", category: "homosexualidad-historia", editorial: "Egales", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1232, title: "Homosexuals i transsexuals: els altres represaliats i discriminats del franquisme, des de la memòria històrica", author: "ERES RIGUEIRA, J.B. / VILLAGRASA ALCAIDE, C. (Coor.)", category: "homosexualidad-historia", editorial: "Bellaterra", ciudad: "Barcelona", año: "2008", notas: "Prólogo Carlos Villagrasa" },
+{ id: 1233, title: "Espainiako asilo-sistema, emakumeen eta lesbianen, gayen, bisexualen eta transexualen giza eskubideen urraketari dagokionez", author: "CEAR-EUSKADI", category: "derechos humanos", editorial: "Cear", ciudad: "Bilbo", año: "2009", notas: "Bilingüe euskera-castellano" },
+{ id: 1234, title: "Homosexualidad griega", author: "DOVER, K.J.", category: "homosexualidad-historia", editorial: "El Cobre", ciudad: "Barcelona", año: "2008", notas: "Prólogo Michel Foucault" },
+{ id: 1235, title: "Sexualidades. Diversidad y control social", author: "GUASCH, Oscar / VIÑUALES, Olga (Eds.)", category: "conducta sexual-ensayo", editorial: "Bellaterra", ciudad: "Barcelona", año: "2003", notas: "" },
+{ id: 1236, title: "Des orientación sexual. Género, sexo, deseo y automodelación", author: "WILTON, Tamsin", category: "lesbianismo-ensayo", editorial: "Bellaterra", ciudad: "Barcelona", año: "2005", notas: "" },
+{ id: 1237, title: "Héroes, científicos, heterosexuales y gays. Los varones en perspectiva de género", author: "GUASCH, Oscar", category: "ensayo", editorial: "Bellaterra", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1238, title: "Iguales en amor, iguales en deseo. Cultura, sexualidad y disidencia", author: "DELGADO CABRERA, A. / MATEO DEL PINO, Á.", category: "ensayo", editorial: "Aduana Vieja", ciudad: "Valencia", año: "2006", notas: "" },
+{ id: 1239, title: "Tal como somos", author: "SORIANO, Manuel Ángel", category: "autoayuda", editorial: "Egales", ciudad: "Barcelona", año: "2007", notas: "" },
+{ id: 1240, title: "Conducta impropia", author: "ALMENDROS, Néstor / JIMÉNEZ-LEAL, Orlando", category: "documental", editorial: "Egales", ciudad: "Barcelona", año: "2008", notas: "Introducción Juan Goytisolo" },
+{ id: 1241, title: "Bisexualidades. Entre la homosexualidad y la heterosexualidad", author: "RIESENFELD, Rinna", category: "bisexualidad", editorial: "Paidós", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1242, title: "Carne y pescado", author: "STRINO, Francesc", category: "bisexualidad", editorial: "La Tempestad", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1243, title: "Lenguaje, poder e identidad", author: "BUTLER, Judith", category: "ensayo", editorial: "Síntesis", ciudad: "Madrid", año: "2004", notas: "" },
+{ id: 1244, title: "Foucault y la teoría queer", author: "SPARGO, Tamsin", category: "ensayo", editorial: "Gedisa", ciudad: "Barcelona", año: "2007", notas: "" },
+{ id: 1245, title: "Teoría Queer. Políticas bolleras, maricas, trans, mestizas", author: "CÓRDOBA, David / SÁEZ, Javier / VIDARTE, Paco [Ed]", category: "ensayo", editorial: "Egales", ciudad: "Barcelona", año: "2007", notas: "" },
+{ id: 1246, title: "El laberinto queer. La identidad en tiempos de neoliberalismo", author: "LÓPEZ PENEDO, Susana", category: "ensayo", editorial: "Egales", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1247, title: "Armarios de cuero. Relatos de vida BDSM", author: "SÁEZ, Fernando / VIÑUALES, Olga", category: "bdsm-testimonios", editorial: "Bellaterra", ciudad: "Barcelona", año: "2007", notas: "" },
+{ id: 1248, title: "La mujer travestida", author: "ORTHS, Markus", category: "novela", editorial: "Salamandra", ciudad: "Barcelona", año: "2009", notas: "" },
+{ id: 1249, title: "La papisa Juana, un estudio sobre la Edad Media", author: "ROÍDIS, Emmanuil", category: "novela", editorial: "Universidad de Sevilla", ciudad: "Sevilla", año: "2007", notas: "Premio Nacional Traducción 2007" },
+{ id: 1250, title: "Autobiografía de Alice B. Toklas", author: "STEIN, Gertrude", category: "biografías", editorial: "Lumen", ciudad: "Barcelona", año: "2000", notas: "" },
+{ id: 1251, title: "Caballo azul de mi locura Lorca y el mundo gay", author: "GIBSON, Ian", category: "biografías", editorial: "Planeta", ciudad: "Barcelona", año: "2009", notas: "" },
+{ id: 1252, title: "Alan Turing", author: "LEAVITT, David", category: "biografías", editorial: "Antoni Bosch", ciudad: "Barcelona", año: "2007", notas: "" },
+{ id: 1253, title: "Memorias", author: "WILLIAMS, Tenesse", category: "biografías", editorial: "Bruguera", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1254, title: "Diarios", author: "WARHOL, Andy", category: "biografías", editorial: "Anagrama", ciudad: "Barcelona", año: "2007", notas: "Edición de Patt Hackett" },
+{ id: 1255, title: "El caso Medina Sidonia. La polémica historia de la duquesa roja, sus hijos y su viuda", author: "RAMÍREZ DE HARO, Iñigo", category: "biografías", editorial: "La Esfera de los Libros", ciudad: "Madrid", año: "2008", notas: "" },
+{ id: 1256, title: "Adolescentes ante la diversidad sexual. Homofobia en los centros educativos", author: "PICHARDO GALÁN, José Ignacio (ed.)", category: "homofobia-ensayos", editorial: "Catarata", ciudad: "Madrid", año: "2009", notas: "Prólogo Jesus Generelo" },
+{ id: 1257, title: "Desarrollo psicológico en las nuevas estructuras familiares", author: "ARRANA FREIJO, Enrique / OLIVA DELGADO, Alfredo (coor.)", category: "psicología", editorial: "Pirámide", ciudad: "Madrid", año: "2010", notas: "" },
+{ id: 1258, title: "Modelos de familia ¿Qué es lo que de verdad cuenta?", author: "GOLOMBOK, Susan", category: "psicología", editorial: "Grao", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1259, title: "Dos madres. La historia de una familia casi feliz", author: "VILLANUEVA PERARNAU, Muriel", category: "testimonios", editorial: "Lumen", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1260, title: "Transexualidad… Transgeneridad y Feminismo", author: "AA. VV.", category: "transexualidad", editorial: "Genera, Transexualia, Cogam…", ciudad: "Madrid", año: "2004", notas: "Prólogo de Kim Pérez" },
+{ id: 1261, title: "Trabajadoras transexuales del sexo: el doble estigma", author: "ROJAS CASTRO, D. / ZARO ROSADO, I. / NAVAZO FERNANDEZ, T.", category: "transexualidad", editorial: "Fundación Triángulo", ciudad: "Madrid", año: "2008", notas: "" },
+{ id: 1262, title: "Transexualidad, intersexualidad y dualidad de género", author: "NIETO PIÑEROBA, José Antonio", category: "transexualidad", editorial: "Bellaterra", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1263, title: "Enriqueta Faber: travestismo, documentos e historia", author: "PANCRAZIO, James J.", category: "ensayo", editorial: "Verbum", ciudad: "Madrid", año: "2008", notas: "" },
+{ id: 1264, title: "Tránsfugas, travestis y traidores. Rebeldes ejemplares en la historia de España", author: "ARNALTE, Arturo", category: "biografías", editorial: "Es", ciudad: "Madrid", año: "2009", notas: "" },
+{ id: 1265, title: "La doncella quiso ser marinero. Travestismo femenino en Europa (siglos XVII-XVIII)", author: "DEKKER, Rudolf M. / POL, Lotte van de", category: "ensayo", editorial: "Siglo XXI", ciudad: "Madrid", año: "2006", notas: "Prólogo de Peter Burke" },
+{ id: 1266, title: "Cuerpos desordenados", author: "MÉRIDA JIMÉNEZ, Rafael M.", category: "ensayo", editorial: "UOC", ciudad: "Barcelona", año: "2009", notas: "" },
+{ id: 1267, title: "Las canciones de Bilitis", author: "LOUYS, Pierre", category: "poesía", editorial: "Visor", ciudad: "Madrid", año: "1999", notas: "Prólogo de Mariano Navarro" },
+{ id: 1268, title: "Hojas de hierba", author: "WHITMAN, Walt", category: "poesía", editorial: "Visor", ciudad: "Madrid", año: "2008", notas: "Edic. de Francisco Alexander" },
+{ id: 1269, title: "La Realidad y el Deseo (1924-1962)", author: "CERNUDA, Luis", category: "poesía", editorial: "Alianza Editorial", ciudad: "Madrid", año: "2005", notas: "" },
+{ id: 1270, title: "Que me estoy muriendo de agua-Guía de Narrativa Lesbica", author: "CASTREJÓN, Maria", category: "guía literaria", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2008", notas: "" },
+{ id: 1271, title: "Transgenero eta transexualen egoera euskadin", author: "ARARTEKO", category: "estudio", editorial: "Ararteko", ciudad: "Vitoria-Gasteiz", año: "2009", notas: "" },
+{ id: 1272, title: "Masculinidad Femenina", author: "HALBERSTAM, Judith", category: "ensayo", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2008", notas: "" },
+{ id: 1273, title: "Lesbianas, discursos y representaciones", author: "PLATERO, Raquel (coord.)", category: "lesbianismo-ensayo", editorial: "Milusina", ciudad: "España", año: "2008", notas: "" },
+{ id: 1274, title: "Ronda Nocturna", author: "WATERS, Sarah", category: "novela", editorial: "Anagrama", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1275, title: "A través de un espejo oscuro", author: "ALAS, Leopoldo", category: "novela", editorial: "Ocho y Medio", ciudad: "Madrid", año: "2005", notas: "" },
+{ id: 1276, title: "Roy", author: "PEYREFITTE, Roger", category: "novela", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2008", notas: "" },
+{ id: 1277, title: "Desde aquí tu ventana", author: "HERCE, Javier", category: "novela", editorial: "Odisea", ciudad: "Madrid", año: "2007", notas: "Premio Odisea" },
+{ id: 1278, title: "Memoria de un abogado", author: "CORTÉS, Juana", category: "novela", editorial: "Almirante", ciudad: "Madrid", año: "2008", notas: "Ddo.por la Autora" },
+{ id: 1279, title: "La situación de las personas refugiadas en España", author: "CEAR, Comisión Española de Ayuda al Refugiado", category: "derechos humanos", editorial: "Entinema", ciudad: "Madrid", año: "2009", notas: "" },
+{ id: 1280, title: "El abanico de la seda", author: "SEE, Lisa", category: "novela", editorial: "Salamandra", ciudad: "Barcelona", año: "2007", notas: "" },
+{ id: 1281, title: "Fun Home. Una familia tragicomica", author: "BECHDEL, Alison", category: "comics", editorial: "Mondadori", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1282, title: "El mismo abrazo", author: "LOWENTHAL, Michael", category: "novela", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2006", notas: "" },
+{ id: 1283, title: "Homosexualidad y trabajo social", author: "MAROTO SAEZ, Angel Luis", category: "trabajo social", editorial: "Siglo XXI", ciudad: "Madrid", año: "2006", notas: "" },
+{ id: 1284, title: "El peor ligue de mi vida", author: "LEDDICK, David", category: "novela", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2003", notas: "" },
+{ id: 1285, title: "Las chicas con las chicas", author: "AA. VV.", category: "relatos", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2009", notas: "" },
+{ id: 1286, title: "Sex", author: "GIMENO, Beatriz", category: "ensayo", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2008", notas: "Ddo.por la Autora" },
+{ id: 1287, title: "La loca aventura de vivir", author: "ALAS, Leopoldo", category: "novela", editorial: "Odisea", ciudad: "Madrid", año: "2009", notas: "" },
+{ id: 1288, title: "Oscar eta Sebastian", author: "ARANA, Aitor", category: "novela", editorial: "Kutxa", ciudad: "Donostia-S.S.", año: "2009", notas: "Irun Hiriko Kutxa Literatur Saria" },
+{ id: 1289, title: "La construcción de la lesbiana perversa", author: "GIMENO, Beatriz", category: "ensayo", editorial: "Gedisa", ciudad: "Barcelona", año: "2008", notas: "Ddo.por la Autora" },
+{ id: 1290, title: "Masturbación. Proceso contra la culpabilidad de las mujeres", author: "WALLACE, Jane", category: "ensayo", editorial: "Ediccion de les Dones", ciudad: "Barcelona", año: "1981", notas: "" },
+{ id: 1291, title: "Mujerarte", author: "AA. VV.", category: "arte", editorial: "Ayto. de Lucena", ciudad: "Lucena", año: "2008", notas: "" },
+{ id: 1292, title: "La mano izquierda de la oscuridad", author: "LE GUIN, Ursula K.", category: "novela", editorial: "Minotauro", ciudad: "Barcelona", año: "2008", notas: "" },
+{ id: 1293, title: "Que sus faldas son ciclones. Representación literaria contemporánea del lesbianismo en lengua inglesa", author: "GARCIA RAYERO, Rosa / SANCHEZ GÓMEZ, Mª Soledad", category: "ensayo", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2008", notas: "" },
+{ id: 1294, title: "Tu dedo corazón", author: "RUIZ, Paloma / MORENO, Esperanza", category: "novela", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2008", notas: "" },
+{ id: 1295, title: "La hiedra del deseo", author: "DIVAKARUNI, Chitra Banerjee", category: "novela", editorial: "Ediciones B", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1296, title: "El árbol seco", author: "BAÑOS, José Antonio", category: "novela", editorial: "Carena", ciudad: "Barcelona", año: "2009", notas: "" },
+{ id: 1297, title: "Sputnik, mi amor", author: "MURAKAMI, Haruki", category: "novela", editorial: "Tusquets", ciudad: "Barcelona", año: "2007", notas: "" },
+{ id: 1298, title: "Los pelicanos", author: "VALLIER, Benoît", category: "novela", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2004", notas: "" },
+{ id: 1299, title: "La pasión", author: "WINTERSON, Jeanette", category: "novela", editorial: "Lumen", ciudad: "Barcelona", año: "2007", notas: "" },
+{ id: 1300, title: "Estoy preparado", author: "ALÍ, Khalo", category: "novela", editorial: "Libido", ciudad: "Madrid", año: "2008", notas: "" },
+{ id: 1301, title: "Tantos nombres olvidados", author: "BLANCO, Carlos", category: "novela", editorial: "Odisea", ciudad: "Madrid", año: "2002", notas: "" },
+{ id: 1302, title: "Dos orillas. Voces en la narrativa lésbica", author: "SALADO, Minerva (ed.)", category: "relatos", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2008", notas: "" },
+{ id: 1303, title: "Handbook on monitoring and reporting homophobic and transphobic incidents", author: "LOUDES, Christine / PARADIS, Evelyne", category: "derechos humanos", editorial: "Ilga-Europe", ciudad: "Bruselas", año: "2008", notas: "" },
+{ id: 1304, title: "Jalgi Hadi Plazara", author: "BORDA, Itxaro", category: "novela", editorial: "Susa", ciudad: "San Sebastian", año: "2007", notas: "" },
+{ id: 1305, title: "Numerados", author: "RECHY, John", category: "novela", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2004", notas: "" },
+{ id: 1306, title: "Yo no soy esa que tu te imaginas. El lesbianismo en la narrativa española del siglo XX a través de sus esteretipos", author: "SIMONIS, Angie", category: "ensayo", editorial: "Uvd. de Alicante", ciudad: "Alicante", año: "2009", notas: "" },
+{ id: 1307, title: "Patty Diphusa", author: "ALMODÓVAR, Pedro", category: "relatos", editorial: "Anagrama", ciudad: "Barcelona", año: "2007", notas: "" },
+{ id: 1308, title: "Salidas de emergencia", author: "NAVARRO, Rosa / ARQUERO, Gema", category: "ensayo", editorial: "Eds. De Facto", ciudad: "Barcelona", año: "2007", notas: "" },
+{ id: 1309, title: "Erotysmo", author: "TELLETXEA, Fernando", category: "poesía", editorial: "Huerga y Fierro", ciudad: "Madrid", año: "2007", notas: "" },
+{ id: 1310, title: "Lestimonios. Voces de mujeres lesbianas 1950-2000", author: "MOGROVEJO, Norma", category: "testimonios", editorial: "Plaza y Valdes", ciudad: "Madrid", año: "2001", notas: "" },
+{ id: 1311, title: "Medias naranjas", author: "MARTINEZ, Cristina", category: "novela", editorial: "Odisea", ciudad: "Madrid", año: "2009", notas: "Finalista XI Premio Odisea" },
+{ id: 1312, title: "Cuentos y fábulas de Lola Van Guardia", author: "FRANC, Isabel", category: "relatos", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2008", notas: "" },
+{ id: 1313, title: "Zezé", author: "VICENTE, Angeles", category: "novela", editorial: "Lengua de Trapo", ciudad: "Madrid", año: "2005", notas: "" },
+{ id: 1314, title: "Billete de ida y vuelta", author: "BELTRÁN, Hecheres", category: "novela", editorial: "Odisea", ciudad: "Madrid", año: "2008", notas: "" },
+{ id: 1315, title: "Onan", author: "ARANA, Aitor", category: "novela", editorial: "Txalaparta", ciudad: "Tafalla", año: "2000", notas: "" },
+{ id: 1316, title: "Ellas y nosotras. Estudios lesbianos sobre literatura escrita en castellano", author: "NORANDI, Elina (coord.)", category: "ensayo", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2009", notas: "" },
+{ id: 1317, title: "Participación Politica y Social de las Mujeres Lesbianas", author: "MUJICA, Inmaculada", category: "lesbianismo-ensayos", editorial: "Aldarte", ciudad: "Bilbo", año: "2009", notas: "Bilingüe Euskera-Castellano" },
+{ id: 1318, title: "Adolescentes y jovenes lesbianas, gays, transexuales y bisexuales", author: "ARARTEKO", category: "estudio", editorial: "Ararteko", ciudad: "Vitoria-Gasteiz", año: "2008", notas: "" },
+{ id: 1319, title: "Cómo educar en la diversida afectivo-sexual en los centros escolares", author: "SÁNCHEZ SÁINZ, Mercedes (coord.)", category: "educación sexual", editorial: "Catarat", ciudad: "Madrid", año: "2009", notas: "" },
+{ id: 1320, title: "El almanaque de las mujeres", author: "BARNES, Djuna", category: "novela", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2008", notas: "" },
+{ id: 1321, title: "Déjame quererte", author: "MENDIETA QUINTANA, Esperanza", category: "novela", editorial: "Odisea", ciudad: "Madrid", año: "2004", notas: "" },
+{ id: 1322, title: "Carmilla", author: "SHERIDA LE FANU, Joseph", category: "novela", editorial: "Alianza Ed.", ciudad: "Madrid", año: "2006", notas: "" },
+{ id: 1323, title: "Esta noche tú decides", author: "MARTÍNEZ, Ramon", category: "novela", editorial: "Odisea", ciudad: "Madrid", año: "2007", notas: "Finalista IX Premio Odisea" },
+{ id: 1324, title: "Tres noches", author: "METTINI VILAS, Rubén", category: "novela", editorial: "Odisea", ciudad: "Madrid", año: "2009", notas: "Ganador IX Premio Odisea" },
+{ id: 1325, title: "Manifiestos gays,lesbianos y queer. Testimonios de una lucha (1969-1994)", author: "MÉRIDA JIMÉNEZ, Rafael M. (ed.)", category: "documentación", editorial: "Icaria", ciudad: "Barcelona", año: "2009", notas: "" },
+{ id: 1326, title: "El laberinto queer. La identidad en tiempos del liberalismo", author: "LÓPEZ PENEDO, Susana", category: "ensayo", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2008", notas: "" },
+{ id: 1327, title: "Sin complejos, Guía para jovenes", author: "GENERELO, Jesús", category: "educación sexual", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2007", notas: "" },
+{ id: 1328, title: "El respeto a la diferencia por orientación sexual", author: "VV. AA.", category: "educación sexual", editorial: "Xega", ciudad: "Oviedo", año: "2002", notas: "" },
+{ id: 1329, title: "Metamorfosis", author: "IBARRONDO, Juan", category: "novela", editorial: "Ttarttalo", ciudad: "San Sebastian", año: "2011", notas: "" },
+{ id: 1330, title: "Visibilidad y participación social de las mujeres lesbianas en Euskadi", author: "MUJIKA FLORES, Inmaculada", category: "lesbianismo-ensayos", editorial: "Ararteko", ciudad: "Vitoria-Gasteiz", año: "1997", notas: "" },
+{ id: 1331, title: "Focault y la teoría queer", author: "SPARGO, Tamsin", category: "ensayo", editorial: "Gedisa", ciudad: "Barcelona", año: "2004", notas: "" },
+{ id: 1332, title: "Anoche hablé con la luna", author: "GIL VILA, Mª Àngels / PIÉROLA, Mabel", category: "cuentos infantiles", editorial: "Bellaterra", ciudad: "Barcelona", año: "2005", notas: "" },
+{ id: 1333, title: "Herramientas para combatir el bullyng homofóbico", author: "PLATERO MÉNDEZ, Raquel / GÓMEZ CETO, Emilio", category: "educación sexual", editorial: "Talasa", ciudad: "Madrid", año: "2007", notas: "" },
+{ id: 1334, title: "Por el culo. Politicas anales", author: "SAÉZ, Javier / CARRASCOSA, Sejo", category: "ensayo", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2011", notas: "" },
+{ id: 1335, title: "Una aparición inesperada", author: "MORALES, Thais", category: "novela", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2009", notas: "" },
+{ id: 1336, title: "Idilio sáfico", author: "De POUGY, Liane", category: "novela", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2009", notas: "" },
+{ id: 1337, title: "El muchacho persa", author: "RENAULT, Mary", category: "novela", editorial: "Grijalbo", ciudad: "Barcelona", año: "1972", notas: "" },
+{ id: 1338, title: "El chico del gorro rojo", author: "HERCE, Javier", category: "novela", editorial: "Odisea", ciudad: "Madrid", año: "2011", notas: "" },
+{ id: 1339, title: "Mujeres de uniforme", author: "TORRÈS, Tereska", category: "novela", editorial: "Demipage", ciudad: "Madrid", año: "2011", notas: "" },
+{ id: 1340, title: "Honor reivindicado", author: "RADCLYFFE", category: "novela", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2011", notas: "" },
+{ id: 1341, title: "Los olivos de Belchite", author: "MOYA, Elena", category: "novela", editorial: "Santillana", ciudad: "Madrid", año: "2010", notas: "" },
+{ id: 1342, title: "El enemigo declarado", author: "GENET, Jean", category: "ensayo", editorial: "Errata Naturae", ciudad: "Madrid", año: "2010", notas: "" },
+{ id: 1343, title: "Sesión continua", author: "PEÑAS, Esther", category: "novela", editorial: "Odisea", ciudad: "Madrid", año: "2011", notas: "Finalista XIII Premio Odisea" },
+{ id: 1344, title: "Et nunc manet in te. Corydon", author: "GIDE, André", category: "novela", editorial: "Odisea", ciudad: "Madrid", año: "2002", notas: "" },
+{ id: 1345, title: "Ajuste de cuentas", author: "GOLDSBY, Gabrielle", category: "novela", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2011", notas: "" },
+{ id: 1346, title: "25 Años más", author: "PETIT, Jordi", category: "homosexualidad-historia", editorial: "Icaria", ciudad: "Barcelona", año: "2003", notas: "" },
+{ id: 1347, title: "Guerreros, chamanes y travestis. Indicios de homosexualidad entre los exóticos", author: "CARDÍN, Alberto", category: "antropología", editorial: "Tusquets", ciudad: "Barcelona", año: "1989", notas: "" },
+{ id: 1348, title: "Antropología de la sexualidad y diversidad cultural", author: "NIETO, José Antonio (ed.)", category: "antropología", editorial: "Talasa", ciudad: "Madrid", año: "2003", notas: "" },
+{ id: 1349, title: "El ocupante", author: "WATERS, Sarah", category: "novela", editorial: "Anagrama", ciudad: "Barcelona", año: "2011", notas: "" },
+{ id: 1350, title: "Botones blandos", author: "STEIN, Gertrude", category: "poesía", editorial: "Abada Editores", ciudad: "Madrid", año: "2011", notas: "" },
+{ id: 1351, title: "El paciente ocasional. Una historia social del Sida", author: "LARRAZABAL, Ibon", category: "sida-historia", editorial: "Peninsula", ciudad: "Barcelona", año: "2011", notas: "" },
+{ id: 1352, title: "Mae West y yo", author: "MENDICUTTI, Eduardo", category: "novela", editorial: "Tusquets", ciudad: "Barcelona", año: "2011", notas: "" },
+{ id: 1353, title: "La voluntad y el deseo. La construcción social del género y la sexualidad: el caso de lesbianas, gays y trans", author: "COLL-PLANAS, Gerard", category: "ensayo", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2010", notas: "" },
+{ id: 1354, title: "El género desordenado. Criticas en torno a la patologización de la transexualidad", author: "MISSÉ, Miquel / COLL-PLANAS, Gerard", category: "transexualidad-ensayos", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2010", notas: "" },
+{ id: 1355, title: "Agresividad injustificada, bullyng y violencia escolar", author: "ORTEGA, Rosario (coord.)", category: "educación", editorial: "Alianza Ed.", ciudad: "Madrid", año: "2010", notas: "" },
+{ id: 1356, title: "El azul es un color cálido", author: "MAROH, Julie", category: "comics", editorial: "Dibbuks", ciudad: "Madrid", año: "2011", notas: "" },
+{ id: 1357, title: "Diles que me quieres", author: "HERNÁNDEZ, Angel", category: "novela", editorial: "Odisea", ciudad: "Madrid", año: "2011", notas: "Ganador XIII Premio Odisea" },
+{ id: 1358, title: "Memorias de Adriano", author: "YOURCENAR, Marguerite", category: "novela", editorial: "Quinteto", ciudad: "Barcelona", año: "2005", notas: "" },
+{ id: 1359, title: "Los Derechos Económicos, Sociales y Culturales en Tiempos de Crisis", author: "SOROETA LICERAS, Juan (Director)", category: "derechos humanos", editorial: "Aranzadi", ciudad: "Navarra", año: "2013", notas: "" },
+{ id: 1360, title: "Judith Butler: Pensamiento en acción", author: "KIRBY, Vicky", category: "ensayo", editorial: "Bellaterra", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1361, title: "Historia del matrimonio. Cómo el amor conquistó el matrimonio", author: "COONTZ, Stephanie", category: "ensayo", editorial: "Gedisa", ciudad: "Barcelona", año: "2006", notas: "" },
+{ id: 1362, title: "Las circunstancias obligaban. Homoerotismo, identidad y resistencia", author: "UGARTE PÉREZ, Javier", category: "ensayo", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2011", notas: "" },
+{ id: 1363, title: "Patricia Highsmith", author: "SCHENKAR, Joan", category: "biografías", editorial: "Circe", ciudad: "Barcelona", año: "2010", notas: "" },
+{ id: 1364, title: "49 goles espectaculares", author: "MARTINI, Davidi", category: "novela", editorial: "Dos Bigotes", ciudad: "Madrid", año: "2015", notas: "" },
+{ id: 1365, title: "El segundo sexo", author: "De BEAUVOIR, Simone", category: "feminismo-ensayos", editorial: "Cátedra", ciudad: "Madrid", año: "2011", notas: "" },
+{ id: 1366, title: "Una habitación propia", author: "WOOLF, Virginia", category: "novela", editorial: "Seix Barral", ciudad: "Barcelona", año: "2010", notas: "" },
+{ id: 1367, title: "Feminismo en el mundo global", author: "VALCÁRCEL, Amelia", category: "feminismo-ensayos", editorial: "Cátedra", ciudad: "Madrid", año: "2008", notas: "" },
+{ id: 1368, title: "Introducción al pensamiento feminista contemporaneo", author: "EVANS, Mary", category: "feminismo-ensayos", editorial: "Minerva", ciudad: "Madrid", año: "1997", notas: "" },
+{ id: 1369, title: "Crítica del pensamiento amoroso", author: "ESTEBAN, Mari Luz", category: "ensayo", editorial: "Bellaterra", ciudad: "Barcelona", año: "2011", notas: "" },
+{ id: 1370, title: "Homofobia. Una historia", author: "FONE, Byrne", category: "homofobia-ensayos", editorial: "Oceano", ciudad: "Mexico", año: "2008", notas: "" },
+{ id: 1371, title: "El edredón de mármol", author: "LEAVITT, David", category: "novela", editorial: "Anagrama", ciudad: "Barcelona", año: "2003", notas: "" },
+{ id: 1372, title: "Arkansas", author: "LEAVITT, David", category: "novela", editorial: "Anagrama", ciudad: "Barcelona", año: "1998", notas: "" },
+{ id: 1373, title: "El hijo de billy", author: "NELL WARREN, Patricia", category: "novela", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2006", notas: "" },
+{ id: 1374, title: "Cuando cae la noche", author: "CUNNINGHAM, Michael", category: "novela", editorial: "Lumen", ciudad: "Barcelona", año: "2011", notas: "" },
+{ id: 1375, title: "Sangre como la mía", author: "MARCHANT LAZCANO, Jorge", category: "novela", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2008", notas: "" },
+{ id: 1376, title: "Teoría feminista: De la Ilustración a la globalización", author: "AMORÓS, Celia-De MIGUEL, Ana", category: "feminismo-ensayos", editorial: "Minerva", ciudad: "Madrid", año: "2005", notas: "" },
+{ id: 1377, title: "Resistencia Bisexual", author: "Elisa Coll", category: "bisexualidad", editorial: "UHF", ciudad: "España", año: "2021", notas: "" },
+{ id: 1378, title: "Con mis manos", author: "Blanca Guifarro", category: "poesía", editorial: "Autopublicado", ciudad: "Honduras", año: "2010", notas: "" },
+{ id: 1379, title: "Presente estás", author: "Amanda Castro", category: "relato", editorial: "Autopublicado", ciudad: "Honduras", año: "2020", notas: "" },
+{ id: 1380, title: "El bebé verde: infancia, transexualidad y héroes del pop", author: "Roberta Marrero", category: "comic", editorial: "Planeta", ciudad: "Barcelona", año: "2016", notas: "" },
+{ id: 1381, title: "Moio gordetzea ezinezkoa zen", author: "Kattalin Miner", category: "relato", editorial: "Elkar", ciudad: "Donostia", año: "2019", notas: "" },
+{ id: 1382, title: "Cómo superar un bollodrama", author: "Paula Alcaide", category: "ensayo", editorial: "Egales", ciudad: "Navarra", año: "2019", notas: "" },
+{ id: 1383, title: "Ética Marica: Proclamas libertarias para una militancia LGTBQ", author: "Paco Vidarte", category: "ensayo", editorial: "Egales", ciudad: "Madrid", año: "2010", notas: "" },
+{ id: 1384, title: "Ética Promíscua", author: "Dossie Eastonm Janet W. Hardy", category: "ensayo", editorial: "Melusina", ciudad: "España", año: "2017", notas: "" },
+{ id: 1385, title: "LGBT para principiantes", author: "Daniel Valero", category: "ensayo", editorial: "Mueve tu lengua", ciudad: "Madrid", año: "2019", notas: "" },
+{ id: 1386, title: "Jenisjoplin", author: "Uxue Alberdi", category: "novela", editorial: "Consonni", ciudad: "Bilbao", año: "2020", notas: "" },
+{ id: 1387, title: "Lara de Altopico Las tierras deel barro", author: "Garazi Albizua Castelao", category: "novela", editorial: "Apache", ciudad: "España", año: "2021", notas: "" },
+{ id: 1388, title: "Etnografía de la bisexualidad en el activismo LGNY", author: "Ignacio Elpidio Domínguez Ruiz", category: "ensayo", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2017", notas: "" },
+{ id: 1389, title: "Después de lo trans Sexo y género entre la izquierda y lo identitario", author: "Elizabeth Duval", category: "no ficción", editorial: "La caja Books", ciudad: "Madrid", año: "2021", notas: "" },
+{ id: 1390, title: "RelataLes Relatos Lésbicos en confinamiento", author: "Dekumas", category: "relatos", editorial: "Dekumas LBT", ciudad: "Madrid", año: "2020", notas: "" },
+{ id: 1391, title: "Rojo, Blanco y Sangre Azul", author: "Casey McQuiston", category: "novela", editorial: "RBA", ciudad: "Barcelona", año: "2019", notas: "" },
+{ id: 1392, title: "Los homosexuales al rescate de la civilización", author: "Cathy Crimmins", category: "ensayo social", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2006", notas: "" },
+{ id: 1393, title: "El laberinto queer la identidad en tiempos de neoliberalismo", author: "Susana López Penedo", category: "ensayo", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2008", notas: "" },
+{ id: 1394, title: "Alma mater", author: "Rita Mae Brown", category: "novela", editorial: "Egales", ciudad: "Barcelona-Madrid", año: "2006", notas: "" }          
+            
+        
+            
         ];
+
 
         // Loans data
         let loans = [];
@@ -1234,7 +2172,338 @@ Sistema Automático gehitubib
             }
         }
 
-        // ACTUALIZAR la función del formulario de préstamo para ser más robusta
+        // Language switching functionality
+        function switchLanguage(lang) {
+            document.querySelectorAll('[data-es]').forEach(element => {
+                if (element.hasAttribute(`data-${lang}`)) {
+                    element.textContent = element.getAttribute(`data-${lang}`);
+                }
+            });
+            
+            document.querySelectorAll('[data-placeholder-es]').forEach(element => {
+                if (element.hasAttribute(`data-placeholder-${lang}`)) {
+                    element.placeholder = element.getAttribute(`data-placeholder-${lang}`);
+                }
+            });
+        }
+
+        // Render books grid
+        function renderBooks(booksToShow = books) {
+            const grid = document.getElementById('booksGrid');
+            const booksCount = document.getElementById('booksCount');
+            
+            // Update counter
+            if (booksCount) {
+                booksCount.textContent = booksToShow.length;
+            }
+            
+            if (booksToShow.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12">
+                        <div class="text-6xl mb-4">📚</div>
+                        <h3 class="text-xl font-semibold text-gray-600 mb-2">No se encontraron libros</h3>
+                        <p class="text-gray-500">Intenta con otros términos de búsqueda o categoría</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            grid.innerHTML = booksToShow.map(book => `
+                <div class="book-card bg-white/70 rounded-2xl p-6 shadow-lg" data-category="${book.category}">
+                    <div class="w-full h-48 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl mb-4 flex items-center justify-center">
+                        <span class="text-white text-4xl">📖</span>
+                    </div>
+                    <h4 class="font-semibold text-lg mb-2 line-clamp-2" title="${book.title}">${book.title}</h4>
+                    <p class="text-gray-600 text-sm mb-2">${book.author}</p>
+                    <p class="text-gray-500 text-xs mb-3">${book.editorial} • ${book.año}</p>
+                    <span class="category-tag px-3 py-1 rounded-full text-xs font-medium capitalize">${book.category}</span>
+                    ${book.notas ? `<p class="text-xs text-gray-500 mt-2 italic">${book.notas}</p>` : ''}
+                    <div class="flex gap-2 mt-4">
+                        <button class="flex-1 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors text-sm details-btn" data-book-id="${book.id}">
+                            Ver Detalles
+                        </button>
+                        <button class="flex-1 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors text-sm loan-btn" data-book-id="${book.id}" data-book-title="${book.title}" data-book-author="${book.author}">
+                            Prestar
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Category filtering
+        function setupCategoryFilters() {
+            const filters = document.querySelectorAll('.category-filter');
+            filters.forEach(filter => {
+                filter.addEventListener('click', () => {
+                    // Update active state
+                    filters.forEach(f => {
+                        f.classList.remove('active', 'pride-gradient', 'text-white');
+                        f.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                    });
+                    filter.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+                    filter.classList.add('active', 'pride-gradient', 'text-white');
+                    
+                    // Filter books
+                    const category = filter.dataset.category;
+                    const filteredBooks = category === 'all' ? books : books.filter(book => book.category === category);
+                    renderBooks(filteredBooks);
+                });
+            });
+        }
+
+        // Catalog functionality
+        function setupCatalog() {
+            const showCatalogBtn = document.getElementById('showCatalogBtn');
+            const closeCatalogBtn = document.getElementById('closeCatalog');
+            const catalogSection = document.getElementById('catalogo');
+            const catalogSearchInput = document.getElementById('catalogSearchInput');
+            const catalogSearchBtn = document.getElementById('catalogSearchBtn');
+            
+            // Show catalog
+            showCatalogBtn.addEventListener('click', () => {
+                catalogSection.classList.remove('hidden');
+                catalogSection.scrollIntoView({ behavior: 'smooth' });
+                renderBooks(); // Show all books initially
+            });
+            
+            // Close catalog
+            closeCatalogBtn.addEventListener('click', () => {
+                catalogSection.classList.add('hidden');
+                document.getElementById('inicio').scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Catalog search functionality
+            function performCatalogSearch() {
+                const query = catalogSearchInput.value.toLowerCase();
+                const filteredBooks = books.filter(book => 
+                    book.title.toLowerCase().includes(query) ||
+                    book.author.toLowerCase().includes(query) ||
+                    book.category.toLowerCase().includes(query) ||
+                    book.editorial.toLowerCase().includes(query) ||
+                    book.año.includes(query) ||
+                    (book.notas && book.notas.toLowerCase().includes(query))
+                );
+                renderBooks(filteredBooks);
+            }
+            
+            catalogSearchBtn.addEventListener('click', performCatalogSearch);
+            catalogSearchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    performCatalogSearch();
+                }
+            });
+        }
+
+        // Search functionality (main page)
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            const searchBtn = document.getElementById('searchBtn');
+            
+            function performSearch() {
+                const query = searchInput.value.toLowerCase();
+                if (query.trim() === '') {
+                    alert('Por favor ingresa un término de búsqueda');
+                    return;
+                }
+                
+                const filteredBooks = books.filter(book => 
+                    book.title.toLowerCase().includes(query) ||
+                    book.author.toLowerCase().includes(query) ||
+                    book.category.toLowerCase().includes(query) ||
+                    book.editorial.toLowerCase().includes(query) ||
+                    book.año.includes(query)
+                );
+                
+                // Show catalog with filtered results
+                const catalogSection = document.getElementById('catalogo');
+                catalogSection.classList.remove('hidden');
+                catalogSection.scrollIntoView({ behavior: 'smooth' });
+                renderBooks(filteredBooks);
+                
+                // Update catalog search input
+                document.getElementById('catalogSearchInput').value = query;
+            }
+            
+            searchBtn.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        }
+
+        // Admin functionality
+        function setupAdmin() {
+            const adminToggle = document.getElementById('adminToggle');
+            const adminModal = document.getElementById('adminModal');
+            const adminLogin = document.getElementById('adminLogin');
+            const adminCancel = document.getElementById('adminCancel');
+            const adminPassword = document.getElementById('adminPassword');
+            const adminError = document.getElementById('adminError');
+            const uploadBtn = document.getElementById('uploadBook');
+            const correctPassword = 'Donostia54689';
+            let isAdminLoggedIn = false;
+            
+            adminToggle.addEventListener('click', () => {
+                if (isAdminLoggedIn) {
+                    // Logout
+                    document.body.classList.remove('admin-mode');
+                    adminToggle.textContent = 'Admin';
+                    adminToggle.classList.remove('bg-red-500', 'text-white');
+                    adminToggle.classList.add('bg-gray-200', 'text-gray-700');
+                    isAdminLoggedIn = false;
+                } else {
+                    // Show login modal
+                    adminModal.classList.remove('hidden');
+                    adminPassword.focus();
+                }
+            });
+            
+            adminLogin.addEventListener('click', () => {
+                const password = adminPassword.value;
+                if (password === correctPassword) {
+                    // Successful login
+                    document.body.classList.add('admin-mode');
+                    adminToggle.textContent = 'Salir Admin';
+                    adminToggle.classList.remove('bg-gray-200', 'text-gray-700');
+                    adminToggle.classList.add('bg-red-500', 'text-white');
+                    adminModal.classList.add('hidden');
+                    adminPassword.value = '';
+                    adminError.classList.add('hidden');
+                    isAdminLoggedIn = true;
+                } else {
+                    // Wrong password
+                    adminError.classList.remove('hidden');
+                    adminPassword.value = '';
+                    adminPassword.focus();
+                }
+            });
+            
+            adminCancel.addEventListener('click', () => {
+                adminModal.classList.add('hidden');
+                adminPassword.value = '';
+                adminError.classList.add('hidden');
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !adminModal.classList.contains('hidden')) {
+                    adminModal.classList.add('hidden');
+                    adminPassword.value = '';
+                    adminError.classList.add('hidden');
+                }
+            });
+            
+            // Login with Enter key
+            adminPassword.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    adminLogin.click();
+                }
+            });
+            
+            uploadBtn.addEventListener('click', () => {
+                const title = document.getElementById('bookTitle').value;
+                const author = document.getElementById('bookAuthor').value;
+                const category = document.getElementById('bookCategory').value;
+                const file = document.getElementById('bookFile').files[0];
+                
+                if (title && author && category && file) {
+                    const newBook = {
+                        id: books.length + 1,
+                        title,
+                        author,
+                        category,
+                        featured: false
+                    };
+                    books.push(newBook);
+                    renderBooks();
+                    
+                    // Clear form
+                    document.getElementById('bookTitle').value = '';
+                    document.getElementById('bookAuthor').value = '';
+                    document.getElementById('bookCategory').value = '';
+                    document.getElementById('bookFile').value = '';
+                    
+                    alert('Libro agregado exitosamente!');
+                } else {
+                    alert('Por favor completa todos los campos y selecciona un archivo.');
+                }
+            });
+        }
+
+        // Book details system
+        function setupBookDetails() {
+            const detailsModal = document.getElementById('bookDetailsModal');
+            const closeBtn = document.getElementById('closeBookDetails');
+            const detailLoanBtn = document.getElementById('detailLoanBtn');
+            
+            // Handle details button clicks
+            document.addEventListener('click', (e) => {
+                if (e.target.classList.contains('details-btn')) {
+                    const bookId = parseInt(e.target.dataset.bookId);
+                    const book = books.find(b => b.id === bookId);
+                    
+                    if (book) {
+                        // Populate modal with book details
+                        document.getElementById('detailTitle').textContent = book.title;
+                        document.getElementById('detailAuthor').textContent = book.author;
+                        document.getElementById('detailEditorial').textContent = book.editorial || '-';
+                        document.getElementById('detailCiudad').textContent = book.ciudad || '-';
+                        document.getElementById('detailAño').textContent = book.año || '-';
+                        document.getElementById('detailCategory').textContent = book.category || '-';
+                        
+                        const notasElement = document.getElementById('detailNotas');
+                        if (book.notas && book.notas.trim()) {
+                            notasElement.textContent = book.notas;
+                            notasElement.style.display = 'block';
+                        } else {
+                            notasElement.style.display = 'none';
+                        }
+                        
+                        // Set up loan button in details modal
+                        detailLoanBtn.dataset.bookId = book.id;
+                        detailLoanBtn.dataset.bookTitle = book.title;
+                        detailLoanBtn.dataset.bookAuthor = book.author;
+                        
+                        detailsModal.classList.remove('hidden');
+                    }
+                }
+            });
+            
+            // Close modal handlers
+            closeBtn.addEventListener('click', () => {
+                detailsModal.classList.add('hidden');
+            });
+            
+            // Close with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !detailsModal.classList.contains('hidden')) {
+                    detailsModal.classList.add('hidden');
+                }
+            });
+            
+            // Handle loan button in details modal
+            detailLoanBtn.addEventListener('click', () => {
+                const bookId = detailLoanBtn.dataset.bookId;
+                const bookTitle = detailLoanBtn.dataset.bookTitle;
+                const bookAuthor = detailLoanBtn.dataset.bookAuthor;
+                
+                // Close details modal and open loan modal
+                detailsModal.classList.add('hidden');
+                
+                // Set up loan modal
+                document.getElementById('loanBookTitle').textContent = bookTitle;
+                document.getElementById('loanBookAuthor').textContent = bookAuthor;
+                const loanForm = document.getElementById('loanForm');
+                loanForm.dataset.bookId = bookId;
+                loanForm.dataset.bookTitle = bookTitle;
+                loanForm.dataset.bookAuthor = bookAuthor;
+                
+                document.getElementById('loanModal').classList.remove('hidden');
+            });
+        }
+
+        // Loan system - VERSIÓN MEJORADA
         function setupLoanSystem() {
             const loanModal = document.getElementById('loanModal');
             const loanForm = document.getElementById('loanForm');
@@ -1330,9 +2599,160 @@ Sistema Automático gehitubib
                 }
             });
         }
+        
+        // Render active loans in admin panel
+        function renderActiveLoans() {
+            const container = document.getElementById('activeLoans');
+            
+            if (loans.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-gray-500">
+                        <div class="text-4xl mb-2">📚</div>
+                        <p>No hay préstamos activos</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = loans.map(loan => `
+                <div class="border border-gray-200 rounded-lg p-4 bg-gray-50">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h5 class="font-semibold text-gray-800">${loan.bookTitle}</h5>
+                            <p class="text-sm text-gray-600">${loan.bookAuthor}</p>
+                        </div>
+                        <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full">Activo</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 text-sm text-gray-600">
+                        <div>
+                            <strong>Usuario:</strong> ${loan.userName}<br>
+                            <strong>Email:</strong> ${loan.userEmail}<br>
+                            ${loan.userPhone ? `<strong>Teléfono:</strong> ${loan.userPhone}` : ''}
+                        </div>
+                        <div>
+                            <strong>Préstamo:</strong> ${loan.loanDate}<br>
+                            <strong>Devolución:</strong> ${loan.returnDate}<br>
+                            <strong>Duración:</strong> ${loan.days} días
+                        </div>
+                    </div>
+                    <div class="mt-3 flex gap-2">
+                        <button class="px-3 py-1 bg-blue-600 text-white text-xs rounded hover:bg-blue-700 transition-colors" onclick="extendLoan(${loan.id})">
+                            Extender
+                        </button>
+                        <button class="px-3 py-1 bg-green-600 text-white text-xs rounded hover:bg-green-700 transition-colors" onclick="returnBook(${loan.id})">
+                            Marcar Devuelto
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Extend loan function
+        function extendLoan(loanId) {
+            const loan = loans.find(l => l.id === loanId);
+            if (loan) {
+                const currentReturn = new Date(loan.returnDate.split('/').reverse().join('-'));
+                currentReturn.setDate(currentReturn.getDate() + 7);
+                loan.returnDate = currentReturn.toLocaleDateString('es-ES');
+                loan.days += 7;
+                renderActiveLoans();
+                alert(`Préstamo extendido 7 días más.\nNueva fecha de devolución: ${loan.returnDate}`);
+            }
+        }
+        
+        // Return book function
+        function returnBook(loanId) {
+            const loanIndex = loans.findIndex(l => l.id === loanId);
+            if (loanIndex !== -1) {
+                const loan = loans[loanIndex];
+                if (confirm(`¿Confirmar devolución del libro "${loan.bookTitle}"?`)) {
+                    loans.splice(loanIndex, 1);
+                    renderActiveLoans();
+                    alert('Libro marcado como devuelto exitosamente.');
+                }
+            }
+        }
+        
+        // Setup admin tabs
+        function setupAdminTabs() {
+            const tabs = document.querySelectorAll('.admin-tab');
+            const tabContents = document.querySelectorAll('.admin-tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetTab = tab.dataset.tab;
+                    
+                    // Update tab styles
+                    tabs.forEach(t => {
+                        t.classList.remove('active', 'text-red-800', 'border-b-2', 'border-red-400');
+                        t.classList.add('text-gray-600');
+                    });
+                    tab.classList.add('active', 'text-red-800', 'border-b-2', 'border-red-400');
+                    tab.classList.remove('text-gray-600');
+                    
+                    // Show/hide tab content
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    document.getElementById(targetTab + 'Tab').classList.remove('hidden');
+                    
+                    // Render loans if switching to loans tab
+                    if (targetTab === 'loans') {
+                        renderActiveLoans();
+                    }
+                });
+            });
+        }
 
-        // El resto de las funciones se mantienen igual...
-        // ... (setupAdmin, setupBookDetails, renderBooks, etc.)
+        // Contact form
+        function setupContactForm() {
+            const form = document.getElementById('contactForm');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('¡Gracias por tu mensaje! Te responderemos pronto.');
+                form.reset();
+            });
+        }
+
+        // Smooth scrolling for navigation
+        function setupSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Setup mobile menu
+        function setupMobileMenu() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when clicking on links
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        }
 
         // Initialize everything
         document.addEventListener('DOMContentLoaded', () => {
@@ -1347,13 +2767,13 @@ Sistema Automático gehitubib
                 }
             });
             
-            // Configurar todas las funcionalidades
+            // Don't render books initially - they'll be shown when catalog is opened
             setupCatalog();
             setupCategoryFilters();
             setupSearch();
             setupAdmin();
             setupBookDetails();
-            setupLoanSystem(); // ¡Esta es la importante!
+            setupLoanSystem();
             setupAdminTabs();
             setupContactForm();
             setupSmoothScrolling();
@@ -1366,16 +2786,9 @@ Sistema Automático gehitubib
 
             console.log('✅ gehitubib inicializado correctamente');
         });
-
-        // Las demás funciones auxiliares (renderActiveLoans, extendLoan, returnBook, etc.)
-        // se mantienen exactamente igual que en el código anterior...
-
     </script>
 </body>
 </html>
-
-
-
 
 
 
